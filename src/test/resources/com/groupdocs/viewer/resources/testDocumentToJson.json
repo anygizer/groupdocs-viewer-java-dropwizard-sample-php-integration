@@ -1,0 +1,18 @@
+{
+    "id": "id",
+    "guid": "guid",
+    "page_count": 123,
+    "page_size": {
+        "height": 100,
+        "width": 100
+    },
+    "url": "url",
+    "name": "name",
+    "image_urls": [
+        "url1",
+        "url2"
+    ],
+    "token": "token",
+    "lic": true,
+    "printUrl": "printUrl"
+}

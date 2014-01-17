@@ -1,0 +1,8 @@
+{
+    "image_urls": [
+        "http://serverName:123/document-viewer/GetDocumentPageImageHandler?path=guid&width=0&quality=0&usePdf=false&pageIndex=0",
+        "http://serverName:123/document-viewer/GetDocumentPageImageHandler?path=guid&width=0&quality=0&usePdf=false&pageIndex=1",
+        "http://serverName:123/document-viewer/GetDocumentPageImageHandler?path=guid&width=0&quality=0&usePdf=false&pageIndex=2",
+        "http://serverName:123/document-viewer/GetDocumentPageImageHandler?path=guid&width=0&quality=0&usePdf=false&pageIndex=3"
+    ]
+}

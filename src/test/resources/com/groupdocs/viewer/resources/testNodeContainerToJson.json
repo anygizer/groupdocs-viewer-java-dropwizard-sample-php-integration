@@ -1,0 +1,28 @@
+{
+    "nodes": [
+        {
+            "id": 123,
+            "guid": "guid",
+            "path": "path",
+            "name": "name",
+            "type": "type",
+            "docType": "docType",
+            "fileType": "fileType",
+            "ext": "ext",
+            "size": 213,
+            "url": "url",
+            "time": 123,
+            "modifyTime": 123,
+            "version": 123,
+            "fileCount": 123,
+            "folderCount": 123,
+            "isKnown": true,
+            "isShared": true,
+            "thumbnail": "thumbnail",
+            "sharers": "sharers",
+            "supportedTypes": "supportedTypes",
+            "nodes": "nodes"
+        }
+    ],
+    "count": 1
+}

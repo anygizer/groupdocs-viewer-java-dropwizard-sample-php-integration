@@ -1,0 +1,32 @@
+#Licence Path
+#Set path to licence file
+#ATTENTION: If you don't have a licence file leave licencePath as it is
+#Example: E:/Projects/GroupDocs/license/GroupDocs.Viewer.Java.lic
+licensePath: E:/Projects/GroupDocs/license/GroupDocs.Viewer.Java.lic
+
+#Server configuration
+#Set available ports for application to use
+#Example: 
+# port: 8080
+# adminPort: 8081
+http:
+  port: 8080
+  adminPort: 8081
+
+#Application Path
+#This path used in application for sending request
+applicationPath: http://127.0.0.1:8080
+  
+#Authorization
+#Set true ONLY if viewer requests will be overridden for authorization
+auth: false
+
+#Files path
+#Set root path for files and images
+#ATTENTION: Root path should contain images, files and licence folders
+#Example: E:/Projects/GroupDocs/
+assets:
+  overrides:
+    /assets: E:/Projects/GroupDocs/
+  mimeTypes:
+    woff: application/font-woff

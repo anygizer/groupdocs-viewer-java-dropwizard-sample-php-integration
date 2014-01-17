@@ -1,0 +1,9 @@
+/target
+/.idea
+/*.iml
+/images
+/files
+/nbactions.xml
+/*.lic
+/nb-configuration.xml
+/0-resources

@@ -1,0 +1,28 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "guid": "path/name.txt",
+            "path": "path/name.txt",
+            "name": "name.txt",
+            "type": "file",
+            "docType": "words",
+            "fileType": "txt",
+            "ext": "txt",
+            "size": 123,
+            "url": null,
+            "time": 312,
+            "modifyTime": 312,
+            "version": 0,
+            "fileCount": 0,
+            "folderCount": 0,
+            "isKnown": false,
+            "isShared": false,
+            "thumbnail": null,
+            "sharers": null,
+            "supportedTypes": null,
+            "nodes": null
+        }
+    ],
+    "count": 1
+}

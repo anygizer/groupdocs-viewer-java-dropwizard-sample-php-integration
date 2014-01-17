@@ -1,0 +1,17 @@
+{
+    "id": "",
+    "guid": "guid",
+    "page_count": 0,
+    "page_size": {
+        "width": 100,
+        "height": 1348
+    },
+    "url": "http://serverName:0/document-viewer/GetFileHandler?path=guid",
+    "name": "guid",
+    "image_urls": [
+
+    ],
+    "token": "",
+    "lic": false,
+    "printUrl": "http://serverName:0/assets/guid"
+}
