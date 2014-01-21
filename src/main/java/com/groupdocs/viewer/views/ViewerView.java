@@ -9,11 +9,13 @@ import com.yammer.dropwizard.views.View;
 public class ViewerView extends View{
     private String headerElems;
     private String locale;
+    private String filePath;
     
-    public ViewerView(String headerElems, String locale){
+    public ViewerView(String headerElems, String locale, String filePath){
         super("viewer.ftl");
         this.headerElems = headerElems;
         this.locale = locale;
+        this.filePath = filePath;
     }
 
     public String getHeaderElems() {
@@ -31,5 +33,12 @@ public class ViewerView extends View{
     public void setLocale(String locale) {
         this.locale = locale;
     }
-    
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
 }

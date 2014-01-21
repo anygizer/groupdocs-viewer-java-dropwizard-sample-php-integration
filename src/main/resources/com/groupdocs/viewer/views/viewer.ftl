@@ -15,7 +15,7 @@
                     localizedStrings = ${locale};
                 </#if>
                 var thumbsImageBase64Encoded = null;
-                $('#test').groupdocsViewer({ filePath: null, docViewerId: 'doc_viewer1', quality: 100, showThumbnails: true, openThumbnails: true, 
+                $('#test').groupdocsViewer({ filePath: '${filePath}', docViewerId: 'doc_viewer1', quality: 100, showThumbnails: true, openThumbnails: true, 
                     initialZoom: 100, zoomToFitWidth: true, zoomToFitHeight: false, width: 1000, height: 500, backgroundColor: '', showFolderBrowser: true, 
                     showPrint: true, showDownload: true, showZoom: true, showPaging: true, showViewerStyleControl: true, showSearch: true, preloadPagesCount: 0, 
                     viewerStyle: 1, supportTextSelection: true, usePdfPrinting: false, localizedStrings: localizedStrings, 

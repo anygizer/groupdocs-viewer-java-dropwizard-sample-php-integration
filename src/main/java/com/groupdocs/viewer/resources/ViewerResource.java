@@ -31,8 +31,26 @@ public class ViewerResource extends GroupDocsViewer{
     }
     
     @GET
-    public ViewerView getViewer(@Context HttpServletRequest request) throws IOException {
-        return new ViewerView(viewerHandler.getHeader(), viewerHandler.getLocale());
+    public ViewerView getViewer(String filePath){
+        try {
+            return new ViewerView(viewerHandler.getHeader(), viewerHandler.getLocale(), filePath);
+        } catch (IOException ex) {
+            return null;
+        }
+    }
+    
+    @GET
+    @Path(value = "/view")
+    public ViewerView getView(@QueryParam("fileId") String fileId, @QueryParam("fileUrl") String fileUrl){
+        String filePath = "";
+        
+            if(fileId != null && !fileId.isEmpty()){
+                filePath = fileId;
+            }else if(fileUrl != null && !fileUrl.isEmpty()){
+                filePath = fileUrl;
+            }
+            return getViewer(filePath);
+        
     }
 
     @GET
@@ -40,7 +58,11 @@ public class ViewerResource extends GroupDocsViewer{
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     @Override
     public Object getFileHandler(@Context HttpServletResponse response, @QueryParam("path") String path) {
-        return viewerHandler.getFileHandler(path, response);
+        try {
+            return viewerHandler.getFileHandler(path, response);
+        } catch (Exception ex) {
+            return null;
+        }
     }
 
     @GET
