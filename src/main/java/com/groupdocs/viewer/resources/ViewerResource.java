@@ -57,7 +57,7 @@ public class ViewerResource extends GroupDocsViewer{
     @Path(value = GET_FILE_HANDLER)
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     @Override
-    public Object getFileHandler(@Context HttpServletResponse response, @QueryParam("path") String path) {
+    public Object getFileHandler(@QueryParam("path") String path, @Context HttpServletResponse response) {
         try {
             return viewerHandler.getFileHandler(path, response);
         } catch (Exception ex) {
@@ -85,7 +85,7 @@ public class ViewerResource extends GroupDocsViewer{
     @Path(value = VIEW_DOCUMENT_HANDLER)
     @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public Object viewDocumentHandler(@Context HttpServletRequest request, @QueryParam("callback") String callback, @QueryParam("data") String data) {
+    public Object viewDocumentHandler(@QueryParam("callback") String callback, @QueryParam("data") String data, @Context HttpServletRequest request) {
         return viewerHandler.viewDocumentHandler(callback, data, request);
     }
 
@@ -117,7 +117,7 @@ public class ViewerResource extends GroupDocsViewer{
     @Path(value = GET_IMAGE_URL_HANDLER)
     @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public Object getImageUrlsHandler(@Context HttpServletRequest request, @QueryParam("callback") String callback, @QueryParam("data") String data) {
+    public Object getImageUrlsHandler(@QueryParam("callback") String callback, @QueryParam("data") String data, @Context HttpServletRequest request) {
         return viewerHandler.getImageUrlsHandler(callback, data, request);
     }
 
@@ -147,7 +147,7 @@ public class ViewerResource extends GroupDocsViewer{
     @GET
     @Path(value = GET_PRINTABLE_HTML_HANDLER)
     @Override
-    public Object getPrintableHtmlHandler(@Context HttpServletRequest request, @QueryParam("callback") String callback, @QueryParam("data") String data) {
+    public Object getPrintableHtmlHandler(@QueryParam("callback") String callback, @QueryParam("data") String data, @Context HttpServletRequest request) {
         return viewerHandler.getPrintableHtmlHandler(callback, data, request);
     }
     
