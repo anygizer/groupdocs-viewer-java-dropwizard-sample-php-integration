@@ -3,6 +3,7 @@ package com.groupdocs.viewer.resources;
 import com.groupdocs.viewer.config.Config;
 import com.groupdocs.viewer.config.ServiceConfiguration;
 import com.groupdocs.viewer.domain.Assets;
+import com.groupdocs.viewer.domain.GroupDocsFilePath;
 import com.groupdocs.viewer.views.ViewerView;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
@@ -42,14 +43,14 @@ public class ViewerResource extends GroupDocsViewer{
     @GET
     @Path(value = "/view")
     public ViewerView getView(@QueryParam("fileId") String fileId, @QueryParam("fileUrl") String fileUrl){
-        String filePath = "";
+        GroupDocsFilePath filePath = new GroupDocsFilePath("");
         
             if(fileId != null && !fileId.isEmpty()){
-                filePath = fileId;
+                filePath.setPath(fileId);
             }else if(fileUrl != null && !fileUrl.isEmpty()){
-                filePath = fileUrl;
+                filePath.setPath(fileUrl);
             }
-            return getViewer(filePath);
+            return getViewer(filePath.getPath());
         
     }
 
