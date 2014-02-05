@@ -4,6 +4,7 @@ import com.groupdocs.viewer.config.Config;
 import com.groupdocs.viewer.config.ServiceConfiguration;
 import com.groupdocs.viewer.domain.Assets;
 import com.groupdocs.viewer.domain.GroupDocsFilePath;
+import com.groupdocs.viewer.handlers.ViewerHandler;
 import com.groupdocs.viewer.views.ViewerView;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
@@ -58,20 +59,16 @@ public class ViewerResource extends GroupDocsViewer{
     @Path(value = GET_FILE_HANDLER)
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     @Override
-    public Object getFileHandler(@QueryParam("path") String path, @Context HttpServletResponse response) {
-        try {
-            return viewerHandler.getFileHandler(path, response);
-        } catch (Exception ex) {
-            return null;
-        }
+    public void getFileHandler(@QueryParam("path") String path, @Context HttpServletResponse response) throws Exception{
+        viewerHandler.getFileHandler(path, response);
     }
 
     @GET
     @Path(value=GET_DOCUMENT_PAGE_IMAGE_HANDLER)
     @Produces("image/jpeg")
     @Override
-    public Object getDocumentPageImageHandler(@QueryParam("path") String guid, @QueryParam("width") String width, @QueryParam("quality") Integer quality, @QueryParam("usePdf") Boolean usePdf, @QueryParam("pageIndex") Integer pageIndex) throws Exception{
-        return viewerHandler.getDocumentPageImageHandler(guid, width, quality, usePdf, pageIndex);
+    public void getDocumentPageImageHandler(@QueryParam("path") String guid, @QueryParam("width") String width, @QueryParam("quality") Integer quality, @QueryParam("usePdf") Boolean usePdf, @QueryParam("pageIndex") Integer pageIndex, @Context HttpServletResponse response) throws Exception{
+        viewerHandler.getDocumentPageImageHandler(guid, width, quality, usePdf, pageIndex, response);
     }
 
     @POST

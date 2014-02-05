@@ -16,7 +16,6 @@ public class Config extends Configuration implements AssetsBundleConfiguration{
     public static final String IMAGES = "temp/";
     
     @Valid
-    @NotNull
     @JsonProperty
     private String licensePath;
     

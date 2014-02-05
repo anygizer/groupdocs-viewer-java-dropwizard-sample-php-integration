@@ -4,7 +4,7 @@
 
     <groupId>com.groupdocs</groupId>
     <artifactId>viewer-dropwizard</artifactId>
-    <version>1.3.0</version>
+    <version>1.4.0</version>
     <packaging>jar</packaging>
 
     <name>GroupDocs Java Viewer - Sample Dropwizard</name>
@@ -112,7 +112,7 @@
         <dependency>
             <groupId>com.groupdocs</groupId>
             <artifactId>viewer</artifactId>
-            <version>1.6.8</version>
+            <version>1.6.9</version>
             <type>jar</type>
         </dependency>
         <dependency>

@@ -2,7 +2,7 @@
 #Set path to licence file
 #ATTENTION: If you don't have a licence file leave licencePath as it is
 #Example: E:/Projects/GroupDocs/license/GroupDocs.Viewer.Java.lic
-licensePath: E:/Projects/GroupDocs/license/GroupDocs.Viewer.Java.lic
+licensePath: null
 
 #Server configuration
 #Set available ports for application to use
@@ -27,6 +27,6 @@ auth: false
 #Example: E:/Projects/GroupDocs/
 assets:
   overrides:
-    /assets: E:/Projects/GroupDocs/
+    /assets: D:\Projects\GroupDocs\app\xFiles
   mimeTypes:
     woff: application/font-woff
