@@ -2,7 +2,7 @@
 #Set path to licence file
 #ATTENTION: If you don't have a licence file leave licencePath as it is
 #Example: E:/Projects/GroupDocs/license/GroupDocs.Viewer.Java.lic
-licensePath: null
+licensePath: D:\Projects\GroupDocs\app\Resources\Aspose License\GroupDocs.Viewer.Java.lic
 
 #Server configuration
 #Set available ports for application to use
@@ -19,7 +19,10 @@ applicationPath: http://127.0.0.1:8080
   
 #Authorization
 #Set true ONLY if viewer requests will be overridden for authorization
-auth: false
+useAuthorization: false
+
+#Use cache generated files
+useCache: true
 
 #Files path
 #Set root path for files and images

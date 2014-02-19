@@ -13,8 +13,6 @@ import javax.validation.constraints.NotNull;
  * @author Alex Bobkov
  */
 public class Config extends Configuration implements AssetsBundleConfiguration{
-    public static final String IMAGES = "temp/";
-    
     @Valid
     @JsonProperty
     private String licensePath;
@@ -27,7 +25,12 @@ public class Config extends Configuration implements AssetsBundleConfiguration{
     @Valid
     @NotNull
     @JsonProperty
-    private boolean auth;
+    private boolean useAuthorization;
+    
+    @Valid
+    @NotNull
+    @JsonProperty
+    private boolean useCache;
     
     @Valid
     @NotNull
@@ -41,10 +44,6 @@ public class Config extends Configuration implements AssetsBundleConfiguration{
 
     public String getLicensePath() {
         return licensePath;
-    }
-
-    public String getImagesPath() {
-        return getBasePath() + IMAGES;
     }
     
     public String getBasePath(){
@@ -60,7 +59,11 @@ public class Config extends Configuration implements AssetsBundleConfiguration{
         return applicationPath;
     }
 
-    public boolean isAuth() {
-        return auth;
+    public boolean useAuthorization() {
+        return useAuthorization;
+    }
+
+    public boolean useCache() {
+        return useCache;
     }
 }

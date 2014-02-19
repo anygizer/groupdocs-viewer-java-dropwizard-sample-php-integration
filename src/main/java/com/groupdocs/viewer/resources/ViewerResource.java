@@ -2,7 +2,6 @@ package com.groupdocs.viewer.resources;
 
 import com.groupdocs.viewer.config.Config;
 import com.groupdocs.viewer.config.ServiceConfiguration;
-import com.groupdocs.viewer.domain.Assets;
 import com.groupdocs.viewer.domain.GroupDocsFilePath;
 import com.groupdocs.viewer.handlers.ViewerHandler;
 import com.groupdocs.viewer.views.ViewerView;
@@ -18,20 +17,20 @@ import javax.ws.rs.core.MediaType;
  * @author Alex Bobkov
  */
 
-@Path(value = "/document-viewer")
+@Path(value = "")
 public class ViewerResource extends GroupDocsViewer{
     private ViewerHandler viewerHandler = null;
     
-    public ViewerResource(Config conf) throws Exception{
-        String appPath = conf.getApplicationPath();
-        String basePath = conf.getBasePath();
-        String licensePath = conf.getLicensePath();
-        Assets assets = new Assets(conf.getImagesPath(), "");
-        Boolean hasAuthorization = conf.isAuth();
-        ServiceConfiguration config = new ServiceConfiguration(appPath, basePath, licensePath, assets, hasAuthorization);
+    public ViewerResource(Config configuration) throws Exception{
+        String appPath = configuration.getApplicationPath();
+        String basePath = configuration.getBasePath();
+        String licensePath = configuration.getLicensePath();
+        boolean auth = configuration.useAuthorization();
+        boolean useCache = configuration.useCache();
+        ServiceConfiguration config = new ServiceConfiguration(appPath, basePath, licensePath, auth, useCache);
         viewerHandler = new ViewerHandler(config);
     }
-    
+
     @GET
     public ViewerView getViewer(String filePath){
         try {
@@ -53,6 +52,27 @@ public class ViewerResource extends GroupDocsViewer{
             }
             return getViewer(filePath.getPath());
         
+    }
+    
+    @GET
+    @Path(value = GET_JS_HANDLER)
+    @Override
+    public void getJsHandler(@QueryParam("script") String scriptName, @Context HttpServletResponse response) throws IOException {
+        viewerHandler.getJsHandler(scriptName, response);
+    }
+
+    @GET
+    @Path(value = GET_CSS_HANDLER)
+    @Override
+    public void getCssHandler(@QueryParam("script") String cssName, @Context HttpServletResponse response) throws IOException {
+        viewerHandler.getCssHandler(cssName, response);
+    }
+
+    @GET
+    @Path(value = GET_IMAGE_HANDLER)
+    @Override
+    public void getImageHandler(@PathParam("name") String imageName, @Context HttpServletResponse response) throws IOException {
+        viewerHandler.getImageHandler(imageName, response);
     }
 
     @GET
@@ -148,5 +168,4 @@ public class ViewerResource extends GroupDocsViewer{
     public Object getPrintableHtmlHandler(@QueryParam("callback") String callback, @QueryParam("data") String data, @Context HttpServletRequest request) {
         return viewerHandler.getPrintableHtmlHandler(callback, data, request);
     }
-    
 }
