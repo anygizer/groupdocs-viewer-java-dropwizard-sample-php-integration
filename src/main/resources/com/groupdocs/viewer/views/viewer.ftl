@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>GroupDocs Viewer for Java</title>
+        <title>GroupDocs.Viewer for Java Sample</title>
         ${headerElems}
     </head>
     <body>
