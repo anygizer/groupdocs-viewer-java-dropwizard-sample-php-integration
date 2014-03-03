@@ -41,17 +41,17 @@ public class ViewerResource extends GroupDocsViewer{
     }
     
     @GET
-    @Path(value = "/view")
-    public ViewerView getView(@QueryParam("fileId") String fileId, @QueryParam("fileUrl") String fileUrl){
-        GroupDocsFilePath filePath = new GroupDocsFilePath("");
-        
-            if(fileId != null && !fileId.isEmpty()){
-                filePath.setPath(fileId);
-            }else if(fileUrl != null && !fileUrl.isEmpty()){
-                filePath.setPath(fileUrl);
-            }
-            return getViewer(filePath.getPath());
-        
+    @Path(value = VIEW)
+    public ViewerView getView(@QueryParam("fileId") String fileId, @QueryParam("fileUrl") String fileUrl, @QueryParam("filePath") String filePath){
+        String encodedPath = "";
+        if(fileId !=null && !fileId.isEmpty()){
+            encodedPath = fileId;
+        }else if(fileUrl != null && !fileUrl.isEmpty()){
+            encodedPath = new GroupDocsFilePath(fileUrl).getPath();
+        }else if(filePath != null && !filePath.isEmpty()){
+            encodedPath = new GroupDocsFilePath(filePath).getPath();
+        }
+        return getViewer(encodedPath);
     }
     
     @GET
@@ -167,5 +167,11 @@ public class ViewerResource extends GroupDocsViewer{
     @Override
     public Object getPrintableHtmlHandler(@QueryParam("callback") String callback, @QueryParam("data") String data, @Context HttpServletRequest request) {
         return viewerHandler.getPrintableHtmlHandler(callback, data, request);
+    }
+    
+    @GET
+    @Path(value = UPLOAD_FILE)
+    public Object uploadFileHandler(@QueryParam("filePath") String filePath){
+        return viewerHandler.uploadFile(filePath);
     }
 }
