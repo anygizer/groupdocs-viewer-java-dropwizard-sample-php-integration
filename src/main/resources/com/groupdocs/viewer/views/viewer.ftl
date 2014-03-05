@@ -5,8 +5,24 @@
         <title>GroupDocs.Viewer for Java Sample</title>
         ${headerElems}
     </head>
+    <script>
+        $(document).ready(function(){
+            $('#fileUpload').on('change', function(){
+                var fakePath = $('#fileUpload').val();
+                var fileName = fakePath.replace(/^.*[\\\/]/, '');
+                $('#fileName').val(fileName);
+            });
+        });
+    </script>
     <body>
-        <h1>GroupDocs Viewer for Java</h1>
+        <h1>GroupDocs.Viewer for Java Sample</h1>
+        <div>
+            <form enctype="multipart/form-data" method="POST" action="UploadFile">
+                <input type="file" id="fileUpload" name="file"/>
+                <input type="hidden" id="fileName" name="fileName"/>
+                <input type="submit" value="Upload"/>
+            </form>
+        </div>
         <div id="test" style="width:1000px;height:500px;overflow:hidden;position:relative;margin-bottom:20px;background-color:gray;border:1px solid #ccc;"></div>
         <script>
             $(function() {

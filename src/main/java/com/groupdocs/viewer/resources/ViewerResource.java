@@ -5,12 +5,16 @@ import com.groupdocs.viewer.config.ServiceConfiguration;
 import com.groupdocs.viewer.domain.GroupDocsFilePath;
 import com.groupdocs.viewer.handlers.ViewerHandler;
 import com.groupdocs.viewer.views.ViewerView;
+import com.sun.jersey.multipart.FormDataParam;
 import java.io.IOException;
+import java.io.InputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
@@ -19,7 +23,7 @@ import javax.ws.rs.core.MediaType;
 
 @Path(value = "")
 public class ViewerResource extends GroupDocsViewer{
-    private ViewerHandler viewerHandler = null;
+    private final ViewerHandler viewerHandler;
     
     public ViewerResource(Config configuration) throws Exception{
         String appPath = configuration.getApplicationPath();
@@ -169,9 +173,17 @@ public class ViewerResource extends GroupDocsViewer{
         return viewerHandler.getPrintableHtmlHandler(callback, data, request);
     }
     
-    @GET
+    @POST
     @Path(value = UPLOAD_FILE)
-    public Object uploadFileHandler(@QueryParam("filePath") String filePath){
-        return viewerHandler.uploadFile(filePath);
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    public void uploadFileHandler(@FormDataParam("file") InputStream inputStream, @FormDataParam("fileName") String fileName, @Context HttpServletResponse response) throws IOException, JSONException{
+        // Upload file
+        String uploadResponse = (String) viewerHandler.uploadFile(inputStream, fileName);
+        // Convert upload response to json object
+        JSONObject obj = new JSONObject(uploadResponse);
+        // Get token id
+        String tokenId = obj.getString("tokenId");
+        // Redirect to uplaoded file
+        response.sendRedirect(VIEW + "?fileId=" + tokenId);
     }
 }

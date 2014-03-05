@@ -10,6 +10,11 @@ import com.yammer.dropwizard.config.FilterBuilder;
 import com.yammer.dropwizard.views.ViewBundle;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 
+/**
+ *
+ * @author Alex Bobkov
+ */
+
 public class MainService extends Service<Config>{
     
     public static void main( String[] args ) throws Exception{
