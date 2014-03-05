@@ -4,16 +4,16 @@
     <head>
         <title>GroupDocs.Viewer for Java Sample</title>
         ${headerElems}
-    </head>
-    <script>
-        $(document).ready(function(){
-            $('#fileUpload').on('change', function(){
-                var fakePath = $('#fileUpload').val();
-                var fileName = fakePath.replace(/^.*[\\\/]/, '');
-                $('#fileName').val(fileName);
+        <script>
+            $(document).ready(function(){
+                $('#fileUpload').on('change', function(){
+                    var fakePath = $('#fileUpload').val();
+                    var fileName = fakePath.replace(/^.*[\\\/]/, '');
+                    $('#fileName').val(fileName);
+                });
             });
-        });
-    </script>
+        </script>
+    </head>
     <body>
         <h1>GroupDocs.Viewer for Java Sample</h1>
         <div>
