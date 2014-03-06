@@ -53,7 +53,7 @@ public class ViewerResource extends GroupDocsViewer{
         }else if(fileUrl != null && !fileUrl.isEmpty()){
             encodedPath = new GroupDocsFilePath(fileUrl).getPath();
         }else if(filePath != null && !filePath.isEmpty()){
-            encodedPath = new GroupDocsFilePath(filePath).getPath();
+            encodedPath = new GroupDocsFilePath(filePath, viewerHandler.getConfiguration()).getPath();
         }
         return getViewer(encodedPath);
     }
