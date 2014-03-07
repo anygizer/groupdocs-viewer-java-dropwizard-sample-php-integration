@@ -186,4 +186,11 @@ public class ViewerResource extends GroupDocsViewer{
         // Redirect to uplaoded file
         response.sendRedirect(VIEW + "?fileId=" + tokenId);
     }
+
+    @POST
+    @Path(value = "UploadFileAPI")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    public Object uploadFileHandler(@FormDataParam("file") InputStream inputStream, @FormDataParam("fileName") String fileName){
+        return viewerHandler.uploadFile(inputStream, fileName);
+    }
 }
