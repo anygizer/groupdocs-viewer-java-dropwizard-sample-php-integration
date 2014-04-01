@@ -51,7 +51,6 @@ public class ViewerResource extends GroupDocsViewer{
     @GET
     @Path(value = VIEW)
     public ViewerView getView(@QueryParam("fileId") String fileId, @QueryParam("fileUrl") String fileUrl, @QueryParam("filePath") String filePath, @QueryParam("tokenId") String tokenId){
-        //test
         GroupDocsPath gPath;
         if(fileId !=null && !fileId.isEmpty()){
             gPath = new FileId(fileId);
