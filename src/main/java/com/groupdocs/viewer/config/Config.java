@@ -35,6 +35,11 @@ public class Config extends Configuration implements AssetsBundleConfiguration{
     @Valid
     @NotNull
     @JsonProperty
+    private int expirationDate;
+    
+    @Valid
+    @NotNull
+    @JsonProperty
     private final AssetsConfiguration assets = new AssetsConfiguration();
 
     @Override
@@ -65,5 +70,9 @@ public class Config extends Configuration implements AssetsBundleConfiguration{
 
     public boolean useCache() {
         return useCache;
+    }
+    
+    public int getExpirationDate(){
+        return expirationDate;
     }
 }

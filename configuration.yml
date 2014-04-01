@@ -21,8 +21,14 @@ applicationPath: http://127.0.0.1:8080
 #Set true ONLY if viewer requests will be overridden for authorization
 useAuthorization: false
 
+#Cache
 #Use cache generated files
 useCache: true
+
+#File expiration date
+#File upload expiration date in minutes
+#Set to 0 if file is never expired
+expirationDate: 5
 
 #Files path
 #Set root path for files and images

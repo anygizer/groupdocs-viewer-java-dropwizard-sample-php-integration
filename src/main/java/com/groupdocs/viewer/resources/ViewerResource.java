@@ -28,8 +28,10 @@ import org.json.JSONObject;
 @Path(value = "")
 public class ViewerResource extends GroupDocsViewer{
     private final ViewerHandler viewerHandler;
+    private final Config configuration;
     
     public ViewerResource(Config configuration) throws Exception{
+        this.configuration = configuration;
         String appPath = configuration.getApplicationPath();
         String basePath = configuration.getBasePath();
         String licensePath = configuration.getLicensePath();
@@ -57,7 +59,11 @@ public class ViewerResource extends GroupDocsViewer{
         }else if(filePath != null && !filePath.isEmpty()){
             gPath = new FilePath(filePath, viewerHandler.getConfiguration());
         }else if(tokenId != null && !tokenId.isEmpty()){
-            gPath = new TokenId(tokenId);
+            TokenId tki = new TokenId(tokenId);
+            if(tki.isExpired()){
+                return getViewer("");
+            }
+            gPath = tki;
         }else{
             gPath = new FileUrl(fileUrl);
         }
@@ -186,7 +192,7 @@ public class ViewerResource extends GroupDocsViewer{
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public void uploadFileHandler(@FormDataParam("file") InputStream inputStream, @FormDataParam("fileName") String fileName, @Context HttpServletResponse response) throws IOException, JSONException{
         // Upload file
-        String uploadResponse = (String) viewerHandler.uploadFile(inputStream, fileName);
+        String uploadResponse = (String) viewerHandler.uploadFile(inputStream, fileName, configuration.getExpirationDate());
         // Convert upload response to json object
         JSONObject obj = new JSONObject(uploadResponse);
         // Get token id
@@ -199,6 +205,6 @@ public class ViewerResource extends GroupDocsViewer{
     @Path(value = "UploadFileAPI")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Object uploadFileHandler(@FormDataParam("file") InputStream inputStream, @FormDataParam("fileName") String fileName){
-        return viewerHandler.uploadFile(inputStream, fileName);
+        return viewerHandler.uploadFile(inputStream, fileName, configuration.getExpirationDate());
     }
 }
