@@ -2,7 +2,11 @@ package com.groupdocs.viewer.resources;
 
 import com.groupdocs.viewer.config.Config;
 import com.groupdocs.viewer.config.ServiceConfiguration;
-import com.groupdocs.viewer.domain.GroupDocsFilePath;
+import com.groupdocs.viewer.domain.FileId;
+import com.groupdocs.viewer.domain.FilePath;
+import com.groupdocs.viewer.domain.FileUrl;
+import com.groupdocs.viewer.domain.GroupDocsPath;
+import com.groupdocs.viewer.domain.TokenId;
 import com.groupdocs.viewer.handlers.ViewerHandler;
 import com.groupdocs.viewer.views.ViewerView;
 import com.sun.jersey.multipart.FormDataParam;
@@ -46,22 +50,25 @@ public class ViewerResource extends GroupDocsViewer{
     
     @GET
     @Path(value = VIEW)
-    public ViewerView getView(@QueryParam("fileId") String fileId, @QueryParam("fileUrl") String fileUrl, @QueryParam("filePath") String filePath){
-        String encodedPath = "";
+    public ViewerView getView(@QueryParam("fileId") String fileId, @QueryParam("fileUrl") String fileUrl, @QueryParam("filePath") String filePath, @QueryParam("tokenId") String tokenId){
+        GroupDocsPath gPath;
         if(fileId !=null && !fileId.isEmpty()){
-            encodedPath = fileId;
-        }else if(fileUrl != null && !fileUrl.isEmpty()){
-            encodedPath = new GroupDocsFilePath(fileUrl).getPath();
+            gPath = new FileId(fileId);
         }else if(filePath != null && !filePath.isEmpty()){
-            encodedPath = new GroupDocsFilePath(filePath, viewerHandler.getConfiguration()).getPath();
+            gPath = new FilePath(filePath, viewerHandler.getConfiguration());
+        }else if(tokenId != null && !tokenId.isEmpty()){
+            gPath = new TokenId(tokenId);
+        }else{
+            gPath = new FileUrl(fileUrl);
         }
-        return getViewer(encodedPath);
+        return getViewer(gPath.getPath());
     }
     
     @GET
     @Path(value = GET_JS_HANDLER)
     @Override
     public void getJsHandler(@QueryParam("script") String scriptName, @Context HttpServletResponse response) throws IOException {
+        response.setContentType("text/javascript");
         viewerHandler.getJsHandler(scriptName, response);
     }
 
@@ -69,6 +76,7 @@ public class ViewerResource extends GroupDocsViewer{
     @Path(value = GET_CSS_HANDLER)
     @Override
     public void getCssHandler(@QueryParam("script") String cssName, @Context HttpServletResponse response) throws IOException {
+        response.setContentType("text/css");
         viewerHandler.getCssHandler(cssName, response);
     }
 
@@ -184,7 +192,7 @@ public class ViewerResource extends GroupDocsViewer{
         // Get token id
         String tokenId = obj.getString("tokenId");
         // Redirect to uplaoded file
-        response.sendRedirect(VIEW + "?fileId=" + tokenId);
+        response.sendRedirect(VIEW + "?tokenId=" + tokenId);
     }
 
     @POST
