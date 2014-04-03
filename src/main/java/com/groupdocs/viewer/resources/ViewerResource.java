@@ -207,4 +207,10 @@ public class ViewerResource extends GroupDocsViewer{
     public Object uploadFileHandler(@FormDataParam("file") InputStream inputStream, @FormDataParam("fileName") String fileName){
         return viewerHandler.uploadFile(inputStream, fileName, configuration.getExpirationDate());
     }
+    
+    @GET
+    @Path(value = "RenewToken")
+    public Object renewTokenId(@QueryParam("tokenId") String tokenId){
+        return viewerHandler.renewTokenId(tokenId);
+    }
 }
