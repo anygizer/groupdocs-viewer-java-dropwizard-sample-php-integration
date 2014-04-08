@@ -74,7 +74,6 @@ public class ViewerResource extends GroupDocsViewer{
     @Path(value = GET_JS_HANDLER)
     @Override
     public void getJsHandler(@QueryParam("script") String scriptName, @Context HttpServletResponse response) throws IOException {
-        response.setContentType("text/javascript");
         viewerHandler.getJsHandler(scriptName, response);
     }
 
@@ -82,7 +81,6 @@ public class ViewerResource extends GroupDocsViewer{
     @Path(value = GET_CSS_HANDLER)
     @Override
     public void getCssHandler(@QueryParam("script") String cssName, @Context HttpServletResponse response) throws IOException {
-        response.setContentType("text/css");
         viewerHandler.getCssHandler(cssName, response);
     }
 
@@ -91,6 +89,14 @@ public class ViewerResource extends GroupDocsViewer{
     @Override
     public void getImageHandler(@PathParam("name") String imageName, @Context HttpServletResponse response) throws IOException {
         viewerHandler.getImageHandler(imageName, response);
+    }
+    
+    @GET
+    @Path(value = GET_FONT_HANDLER)
+    @Override
+    public void getFontHandler(@PathParam("name") String fontName, @Context HttpServletResponse response) throws IOException {
+        response.setContentType("application/font-woff");
+        viewerHandler.getImageHandler(fontName, response);
     }
 
     @GET
