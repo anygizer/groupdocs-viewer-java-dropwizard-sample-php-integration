@@ -23,17 +23,16 @@
                 <input type="submit" value="Upload"/>
             </form>
         </div>
-        <div id="test" style="width:1000px;height:500px;overflow:hidden;position:relative;margin-bottom:20px;background-color:gray;border:1px solid #ccc;"></div>
+        <div id="test"></div>
         <script>
-            $(function() {
+             $(function () { 
                 var localizedStrings = 'null';
                 <#if locale??>
                     localizedStrings = ${locale};
                 </#if>
                 var thumbsImageBase64Encoded = null;
                 $('#test').groupdocsViewer({ 
-                    filePath: '${filePath}', 
-                    docViewerId: 'doc_viewer1', 
+                    filePath: '${filePath}',
                     quality: 100, 
                     showThumbnails: true, 
                     openThumbnails: true, 
@@ -41,7 +40,7 @@
                     zoomToFitWidth: true, 
                     zoomToFitHeight: false, 
                     width: 1000, 
-                    height: 500, 
+                    height: 650, 
                     backgroundColor: '', 
                     showFolderBrowser: true, 
                     showPrint: true, 
@@ -66,12 +65,26 @@
                     toolbarButtonBorderHoverColor: '',
                     thumbnailsContainerWidth: 0,
                     jqueryFileDownloadCookieName: 'jqueryFileDownloadJSForGD', 
-                    showDownloadErrorsInPopup: true,
+                    showDownloadErrorsInPopup: false,
                     showImageWidth: false, 
                     showHeader: true,
                     minimumImageWidth: 0, 
-                    enableStandardErrorHandling: true});
-            });
+                    enableStandardErrorHandling: true,
+                    useHtmlBasedEngine: false, 
+                    useImageBasedPrinting: true, 
+                    fileDisplayName: '', 
+                    downloadPdfFile: false,
+                    searchForSeparateWords: false,
+                    preventTouchEventsBubbling: false, 
+                    useInnerThumbnails: true,
+                    atermarkText: '', 
+                    supportPageReordering: false,
+                    watermarkFontSize: null,
+                    watermarkColor: null,
+                    watermarkLeft: null,
+                    watermarkTop: null
+                }); 
+            }); 
         </script>
     </body>
 </html>
