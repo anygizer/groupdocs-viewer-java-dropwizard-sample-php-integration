@@ -77,7 +77,7 @@
                     searchForSeparateWords: false,
                     preventTouchEventsBubbling: false, 
                     useInnerThumbnails: true,
-                    atermarkText: '', 
+                    watermarkText: '', 
                     supportPageReordering: false,
                     watermarkFontSize: null,
                     watermarkColor: null,
