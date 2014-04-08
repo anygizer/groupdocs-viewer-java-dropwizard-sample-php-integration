@@ -76,7 +76,7 @@
                     downloadPdfFile: false,
                     searchForSeparateWords: false,
                     preventTouchEventsBubbling: false, 
-                    useInnerThumbnails: true,
+                    useInnerThumbnails: false,
                     watermarkText: '', 
                     supportPageReordering: false,
                     watermarkFontSize: null,
