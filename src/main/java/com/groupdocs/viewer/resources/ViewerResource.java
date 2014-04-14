@@ -10,6 +10,7 @@ import com.groupdocs.viewer.domain.TokenId;
 import com.groupdocs.viewer.handlers.ViewerHandler;
 import com.groupdocs.viewer.views.ViewerView;
 import com.sun.jersey.multipart.FormDataParam;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -97,6 +98,14 @@ public class ViewerResource extends GroupDocsViewer{
     public void getFontHandler(@PathParam("name") String fontName, @Context HttpServletResponse response) throws IOException {
         response.setContentType("application/font-woff");
         viewerHandler.getImageHandler(fontName, response);
+    }
+    
+    @GET
+    @Path(value = GET_HTML_RESOURCES_HANDLER)
+    @Override
+    public void getHtmlRecoucesHandler(@QueryParam("filePath") String filePath, @Context HttpServletResponse response) throws FileNotFoundException, IOException {
+        response.setContentType("image/svg+xml");
+        viewerHandler.getHtmlRecoucesHandler(filePath, response);
     }
 
     @GET
@@ -219,4 +228,5 @@ public class ViewerResource extends GroupDocsViewer{
     public Object renewTokenId(@QueryParam("tokenId") String tokenId){
         return viewerHandler.renewTokenId(tokenId);
     }
+
 }
