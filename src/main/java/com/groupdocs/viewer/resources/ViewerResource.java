@@ -228,5 +228,12 @@ public class ViewerResource extends GroupDocsViewer{
     public Object renewTokenId(@QueryParam("tokenId") String tokenId){
         return viewerHandler.renewTokenId(tokenId);
     }
+    
+    @POST
+    @Path(value = GET_DOCUMENT_PAGE_HTML_HANDLER)
+    @Override
+    public Object getDocumentPageHtmlHandler(@Context HttpServletRequest request, @Context HttpServletResponse response){
+        return viewerHandler.getDocumentPageHtmlHandler(request, response);
+    }
 
 }
