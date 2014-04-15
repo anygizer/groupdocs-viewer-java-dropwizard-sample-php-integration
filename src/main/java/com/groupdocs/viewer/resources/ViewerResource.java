@@ -45,7 +45,7 @@ public class ViewerResource extends GroupDocsViewer{
     @GET
     public ViewerView getViewer(String filePath){
         try {
-            return new ViewerView(viewerHandler.getHeader(), viewerHandler.getLocale(), filePath);
+            return new ViewerView(viewerHandler.getHeader(), viewerHandler.getLocale(), filePath, configuration);
         } catch (IOException ex) {
             return null;
         }
@@ -232,8 +232,8 @@ public class ViewerResource extends GroupDocsViewer{
     @POST
     @Path(value = GET_DOCUMENT_PAGE_HTML_HANDLER)
     @Override
-    public Object getDocumentPageHtmlHandler(@Context HttpServletRequest request, @Context HttpServletResponse response){
-        return viewerHandler.getDocumentPageHtmlHandler(request, response);
+    public void getDocumentPageHtmlHandler(@Context HttpServletRequest request, @Context HttpServletResponse response){
+        viewerHandler.getDocumentPageHtmlHandler(request, response);
     }
 
 }

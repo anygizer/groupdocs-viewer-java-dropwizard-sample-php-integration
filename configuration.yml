@@ -39,3 +39,45 @@ assets:
     /assets: E:\Projects\GroupDocs\app\xFiles
   mimeTypes:
     woff: application/font-woff
+
+quality: 100
+
+showThumbnails: true
+
+openThumbnails: true
+
+initialZoom: 100
+
+zoomToFitWidth: true
+
+zoomToFitHeight: false
+
+width: 1000
+
+height: 650
+
+showFolderBrowser: true
+
+showPrint: true
+
+showDownload: true
+
+showZoom: true
+
+showPaging: true
+
+showViewerStyleControl: true
+
+showSearch: true
+
+preloadPagesCount: 0
+
+supportTextSelection: true
+
+usePdfPrinting: false
+
+showHeader: true
+
+useHtmlBasedEngine: true
+
+useInnerThumbnails: true
