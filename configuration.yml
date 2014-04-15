@@ -1,4 +1,4 @@
-#Licence Path
+#Licence path
 #Set path to licence file
 #ATTENTION: If you don't have a licence file leave licencePath as it is
 #Example: E:\\Projects\\GroupDocs\\app\\Resources\\Aspose License\\GroupDocs.Viewer.Java.lic
@@ -17,6 +17,16 @@ http:
 #This path used in application for sending request
 applicationPath: http://127.0.0.1:8080
   
+#Files path
+#Set root path for files and images
+#ATTENTION: Root path should contain files
+#Example: E:/Projects/GroupDocs/
+assets:
+  overrides:
+    /assets: E:\Projects\GroupDocs\app\xFiles
+  mimeTypes:
+    woff: application/font-woff
+
 #Authorization
 #Set true ONLY if viewer requests will be overridden for authorization
 useAuthorization: false
@@ -25,59 +35,75 @@ useAuthorization: false
 #Use cache generated files
 useCache: true
 
+#HTML output
+#If true all documents will be converted to HTML instead of images
+#ATTENTION: if this flag is set to 'true' useCache flag should be 'true' as well
+useHtmlBasedEngine: true
+
 #File expiration date
 #File upload expiration date in minutes
 #Set to 0 if file is never expired
 expirationDate: 5
 
-#Files path
-#Set root path for files and images
-#ATTENTION: Root path should contain images, files and licence folders
-#Example: E:/Projects/GroupDocs/
-assets:
-  overrides:
-    /assets: E:\Projects\GroupDocs\app\xFiles
-  mimeTypes:
-    woff: application/font-woff
-
+#Quality
+#Default quality of generated images
 quality: 100
 
+#Show thumbnails
 showThumbnails: true
 
+#Open thumbnails
 openThumbnails: true
 
+#Initial zoom
 initialZoom: 100
 
+#Zoom to fit width
 zoomToFitWidth: true
 
+#Zoom to fit height
 zoomToFitHeight: false
 
+#Width
+#Viewer width
 width: 1000
 
+#Height
+#Viewer height
 height: 650
 
+#Show folder browser button
 showFolderBrowser: true
 
+#Show print button
 showPrint: true
 
+#Show download button
 showDownload: true
 
+#Show zoom button
 showZoom: true
 
+#Show paging
 showPaging: true
 
+#Show viewer style control
 showViewerStyleControl: true
 
+#Show search
 showSearch: true
 
+#Pre-load pages count
 preloadPagesCount: 0
 
+#Support text selection
 supportTextSelection: true
 
+#Use pdf printing
 usePdfPrinting: false
 
+#Show header
 showHeader: true
 
-useHtmlBasedEngine: true
-
+#Use innet thumbnails
 useInnerThumbnails: true
