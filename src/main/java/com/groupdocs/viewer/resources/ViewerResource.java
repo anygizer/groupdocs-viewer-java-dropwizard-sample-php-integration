@@ -118,7 +118,6 @@ public class ViewerResource extends GroupDocsViewer{
 
     @GET
     @Path(value=GET_DOCUMENT_PAGE_IMAGE_HANDLER)
-    @Produces("image/jpeg")
     @Override
     public void getDocumentPageImageHandler(@QueryParam("path") String path, @QueryParam("width") Integer width, @QueryParam("quality") Integer quality, @QueryParam("usePdf") Boolean usePdf, @QueryParam("pageIndex") Integer pageIndex, @Context HttpServletResponse response) throws Exception{
         viewerHandler.getDocumentPageImageHandler(path, width, quality, usePdf, pageIndex, response);
