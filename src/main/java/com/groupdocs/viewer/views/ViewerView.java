@@ -12,26 +12,26 @@ public class ViewerView extends View{
     private String locale;
     private String filePath;
     private int quality;
-    private boolean showThumbnails;
-    private boolean openThumbnails;
+    private String showThumbnails;
+    private String openThumbnails;
     private int initialZoom;
-    private boolean zoomToFitWidth;
-    private boolean zoomToFitHeight;
+    private String zoomToFitWidth;
+    private String zoomToFitHeight;
     private String width;
     private String height;
-    private boolean showFolderBrowser;
-    private boolean showPrint;
-    private boolean showDownload;
-    private boolean showZoom;
-    private boolean showPaging;
-    private boolean showViewerStyleControl;
-    private boolean showSearch;
+    private String showFolderBrowser;
+    private String showPrint;
+    private String showDownload;
+    private String showZoom;
+    private String showPaging;
+    private String showViewerStyleControl;
+    private String showSearch;
     private int preloadPagesCount;
-    private boolean supportTextSelection;
-    private boolean usePdfPrinting;
-    private boolean showHeader;
-    private boolean useHtmlBasedEngine;
-    private boolean useInnerThumbnails;
+    private String supportTextSelection;
+    private String usePdfPrinting;
+    private String showHeader;
+    private String useHtmlBasedEngine;
+    private String useInnerThumbnails;
     
     public ViewerView(String headerElems, String locale, String filePath, Config config){
         super("viewer.ftl");
@@ -39,26 +39,26 @@ public class ViewerView extends View{
         this.locale = locale;
         this.filePath = filePath;
         quality = config.getQuality();
-        showThumbnails = config.isShowThumbnails();
-        openThumbnails = config.isOpenThumbnails();
+        showThumbnails = String.valueOf(config.isShowThumbnails());
+        openThumbnails = String.valueOf(config.isOpenThumbnails());
         initialZoom = config.getInitialZoom();
-        zoomToFitWidth = config.isZoomToFitWidth();
-        zoomToFitHeight = config.isZoomToFitHeight();
+        zoomToFitWidth = String.valueOf(config.isZoomToFitWidth());
+        zoomToFitHeight = String.valueOf(config.isZoomToFitHeight());
         width = String.valueOf(config.getWidth());
         height = String.valueOf(config.getHeight());
-        showFolderBrowser = config.isShowFolderBrowser();
-        showPrint = config.isShowPrint();
-        showDownload = config.isShowDownload();
-        showZoom = config.isShowZoom();
-        showPaging = config.isShowPaging();
-        showViewerStyleControl = config.isShowViewerStyleControl();
-        showSearch = config.isShowSearch();
+        showFolderBrowser = String.valueOf(config.isShowFolderBrowser());
+        showPrint = String.valueOf(config.isShowPrint());
+        showDownload = String.valueOf(config.isShowDownload());
+        showZoom = String.valueOf(config.isShowZoom());
+        showPaging = String.valueOf(config.isShowPaging());
+        showViewerStyleControl = String.valueOf(config.isShowViewerStyleControl());
+        showSearch = String.valueOf(config.isShowSearch());
         preloadPagesCount = config.getPreloadPagesCount();
-        supportTextSelection = config.isSupportTextSelection();
-        usePdfPrinting = config.isUsePdfPrinting();
-        showHeader = config.isShowHeader();
-        useHtmlBasedEngine = config.isUseHtmlBasedEngine();
-        useInnerThumbnails = config.isUseInnerThumbnails();
+        supportTextSelection = String.valueOf(config.isSupportTextSelection());
+        usePdfPrinting = String.valueOf(config.isUsePdfPrinting());
+        showHeader = String.valueOf(config.isShowHeader());
+        useHtmlBasedEngine = String.valueOf(config.isUseHtmlBasedEngine());
+        useInnerThumbnails = String.valueOf(config.isUseInnerThumbnails());
     }
 
     public String getHeaderElems() {
@@ -93,19 +93,19 @@ public class ViewerView extends View{
         this.quality = quality;
     }
 
-    public boolean isShowThumbnails() {
+    public String getShowThumbnails() {
         return showThumbnails;
     }
 
-    public void setShowThumbnails(boolean showThumbnails) {
+    public void setShowThumbnails(String showThumbnails) {
         this.showThumbnails = showThumbnails;
     }
 
-    public boolean isOpenThumbnails() {
+    public String getOpenThumbnails() {
         return openThumbnails;
     }
 
-    public void setOpenThumbnails(boolean openThumbnails) {
+    public void setOpenThumbnails(String openThumbnails) {
         this.openThumbnails = openThumbnails;
     }
 
@@ -117,19 +117,19 @@ public class ViewerView extends View{
         this.initialZoom = initialZoom;
     }
 
-    public boolean isZoomToFitWidth() {
+    public String getZoomToFitWidth() {
         return zoomToFitWidth;
     }
 
-    public void setZoomToFitWidth(boolean zoomToFitWidth) {
+    public void setZoomToFitWidth(String zoomToFitWidth) {
         this.zoomToFitWidth = zoomToFitWidth;
     }
 
-    public boolean isZoomToFitHeight() {
+    public String getZoomToFitHeight() {
         return zoomToFitHeight;
     }
 
-    public void setZoomToFitHeight(boolean zoomToFitHeight) {
+    public void setZoomToFitHeight(String zoomToFitHeight) {
         this.zoomToFitHeight = zoomToFitHeight;
     }
 
@@ -137,71 +137,71 @@ public class ViewerView extends View{
         return width;
     }
 
-    public void setWidth(int width) {
-        this.width = String.valueOf(width);
+    public void setWidth(String width) {
+        this.width = width;
     }
 
     public String getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
-        this.height = String.valueOf(height);
+    public void setHeight(String height) {
+        this.height = height;
     }
 
-    public boolean isShowFolderBrowser() {
+    public String getShowFolderBrowser() {
         return showFolderBrowser;
     }
 
-    public void setShowFolderBrowser(boolean showFolderBrowser) {
+    public void setShowFolderBrowser(String showFolderBrowser) {
         this.showFolderBrowser = showFolderBrowser;
     }
 
-    public boolean isShowPrint() {
+    public String getShowPrint() {
         return showPrint;
     }
 
-    public void setShowPrint(boolean showPrint) {
+    public void setShowPrint(String showPrint) {
         this.showPrint = showPrint;
     }
 
-    public boolean isShowDownload() {
+    public String getShowDownload() {
         return showDownload;
     }
 
-    public void setShowDownload(boolean showDownload) {
+    public void setShowDownload(String showDownload) {
         this.showDownload = showDownload;
     }
 
-    public boolean isShowZoom() {
+    public String getShowZoom() {
         return showZoom;
     }
 
-    public void setShowZoom(boolean showZoom) {
+    public void setShowZoom(String showZoom) {
         this.showZoom = showZoom;
     }
 
-    public boolean isShowPaging() {
+    public String getShowPaging() {
         return showPaging;
     }
 
-    public void setShowPaging(boolean showPaging) {
+    public void setShowPaging(String showPaging) {
         this.showPaging = showPaging;
     }
 
-    public boolean isShowViewerStyleControl() {
+    public String getShowViewerStyleControl() {
         return showViewerStyleControl;
     }
 
-    public void setShowViewerStyleControl(boolean showViewerStyleControl) {
+    public void setShowViewerStyleControl(String showViewerStyleControl) {
         this.showViewerStyleControl = showViewerStyleControl;
     }
 
-    public boolean isShowSearch() {
+    public String getShowSearch() {
         return showSearch;
     }
 
-    public void setShowSearch(boolean showSearch) {
+    public void setShowSearch(String showSearch) {
         this.showSearch = showSearch;
     }
 
@@ -213,45 +213,44 @@ public class ViewerView extends View{
         this.preloadPagesCount = preloadPagesCount;
     }
 
-    public boolean isSupportTextSelection() {
+    public String getSupportTextSelection() {
         return supportTextSelection;
     }
 
-    public void setSupportTextSelection(boolean supportTextSelection) {
+    public void setSupportTextSelection(String supportTextSelection) {
         this.supportTextSelection = supportTextSelection;
     }
 
-    public boolean isUsePdfPrinting() {
+    public String getUsePdfPrinting() {
         return usePdfPrinting;
     }
 
-    public void setUsePdfPrinting(boolean usePdfPrinting) {
+    public void setUsePdfPrinting(String usePdfPrinting) {
         this.usePdfPrinting = usePdfPrinting;
     }
 
-    public boolean isShowHeader() {
+    public String getShowHeader() {
         return showHeader;
     }
 
-    public void setShowHeader(boolean showHeader) {
+    public void setShowHeader(String showHeader) {
         this.showHeader = showHeader;
     }
 
-    public boolean isUseHtmlBasedEngine() {
+    public String getUseHtmlBasedEngine() {
         return useHtmlBasedEngine;
     }
 
-    public void setUseHtmlBasedEngine(boolean useHtmlBasedEngine) {
+    public void setUseHtmlBasedEngine(String useHtmlBasedEngine) {
         this.useHtmlBasedEngine = useHtmlBasedEngine;
     }
 
-    public boolean isUseInnerThumbnails() {
+    public String getUseInnerThumbnails() {
         return useInnerThumbnails;
     }
 
-    public void setUseInnerThumbnails(boolean useInnerThumbnails) {
+    public void setUseInnerThumbnails(String useInnerThumbnails) {
         this.useInnerThumbnails = useInnerThumbnails;
     }
-    
-    
+
 }
