@@ -96,21 +96,18 @@ public class ViewerResource extends GroupDocsViewer{
     @Path(value = GET_FONT_HANDLER)
     @Override
     public void getFontHandler(@PathParam("name") String fontName, @Context HttpServletResponse response) throws IOException {
-        response.setContentType("application/font-woff");
-        viewerHandler.getImageHandler(fontName, response);
+        viewerHandler.getFontHandler(fontName, response);
     }
     
     @GET
     @Path(value = GET_HTML_RESOURCES_HANDLER)
     @Override
     public void getHtmlRecoucesHandler(@QueryParam("filePath") String filePath, @Context HttpServletResponse response) throws FileNotFoundException, IOException {
-        response.setContentType("image/svg+xml");
         viewerHandler.getHtmlRecoucesHandler(filePath, response);
     }
 
     @GET
     @Path(value = GET_FILE_HANDLER)
-    @Produces(MediaType.APPLICATION_OCTET_STREAM)
     @Override
     public void getFileHandler(@QueryParam("path") String path, @Context HttpServletResponse response) throws Exception{
         viewerHandler.getFileHandler(path, response);
@@ -125,80 +122,74 @@ public class ViewerResource extends GroupDocsViewer{
 
     @POST
     @Path(value = VIEW_DOCUMENT_HANDLER)
-    @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public Object viewDocumentHandler(@Context HttpServletRequest request) {
-        return viewerHandler.viewDocumentHandler(request);
+    public Object viewDocumentHandler(@Context HttpServletRequest request, @Context HttpServletResponse response) {
+        return viewerHandler.viewDocumentHandler(request, response);
     }
 
     @GET
     @Path(value = VIEW_DOCUMENT_HANDLER)
-    @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public Object viewDocumentHandler(@QueryParam("callback") String callback, @QueryParam("data") String data, @Context HttpServletRequest request) {
-        return viewerHandler.viewDocumentHandler(callback, data, request);
+    public Object viewDocumentHandler(@QueryParam("callback") String callback, @QueryParam("data") String data, @Context HttpServletRequest request, @Context HttpServletResponse response) {
+        return viewerHandler.viewDocumentHandler(callback, data, request, response);
     }
 
     @POST
     @Path(value = LOAD_FILE_BROWSER_TREE_DATA_HANLER)
-    @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public Object loadFileBrowserTreeDataHandler(@Context HttpServletRequest request) {
-        return viewerHandler.loadFileBrowserTreeDataHandler(request);
+    public Object loadFileBrowserTreeDataHandler(@Context HttpServletRequest request, @Context HttpServletResponse response) {
+        return viewerHandler.loadFileBrowserTreeDataHandler(request, response);
     }
 
     @GET
     @Path(value=LOAD_FILE_BROWSER_TREE_DATA_HANLER)
-    @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public Object loadFileBrowserTreeDataHandler(@QueryParam("callback") String callback, @QueryParam("data") String data) {
-        return viewerHandler.loadFileBrowserTreeDataHandler(callback, data);
+    public Object loadFileBrowserTreeDataHandler(@QueryParam("callback") String callback, @QueryParam("data") String data, @Context HttpServletResponse response) {
+        return viewerHandler.loadFileBrowserTreeDataHandler(callback, data, response);
     }
 
     @POST
     @Path(value = GET_IMAGE_URL_HANDLER)
     @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public Object getImageUrlsHandler(@Context HttpServletRequest request) {
-        return viewerHandler.getImageUrlsHandler(request);
+    public Object getImageUrlsHandler(@Context HttpServletRequest request, @Context HttpServletResponse response) {
+        return viewerHandler.getImageUrlsHandler(request, response);
     }
 
     @GET
     @Path(value = GET_IMAGE_URL_HANDLER)
     @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public Object getImageUrlsHandler(@QueryParam("callback") String callback, @QueryParam("data") String data, @Context HttpServletRequest request) {
-        return viewerHandler.getImageUrlsHandler(callback, data, request);
+    public Object getImageUrlsHandler(@QueryParam("callback") String callback, @QueryParam("data") String data, @Context HttpServletRequest request, @Context HttpServletResponse response) {
+        return viewerHandler.getImageUrlsHandler(callback, data, request, response);
     }
 
     @POST
     @Path(value = GET_PDF_2_JAVA_SCRIPT_HANDLER)
-    @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public Object getPdf2JavaScriptHandler(@Context HttpServletRequest request) {
-        return viewerHandler.getPdf2JavaScriptHandler(request);
+    public Object getPdf2JavaScriptHandler(@Context HttpServletRequest request, @Context HttpServletResponse response) {
+        return viewerHandler.getPdf2JavaScriptHandler(request, response);
     }
 
     @GET
     @Path(value = GET_PDF_2_JAVA_SCRIPT_HANDLER)
-    @Produces(MediaType.APPLICATION_JSON)
     @Override
-    public Object getPdf2JavaScriptHandler(@QueryParam("callback") String callback, @QueryParam("data") String data) {
-        return viewerHandler.getPdf2JavaScriptHandler(callback, data);
+    public Object getPdf2JavaScriptHandler(@QueryParam("callback") String callback, @QueryParam("data") String data, @Context HttpServletResponse response) {
+        return viewerHandler.getPdf2JavaScriptHandler(callback, data, response);
     }
 
     @POST
     @Path(value = GET_PRINTABLE_HTML_HANDLER)
     @Override
-    public Object getPrintableHtmlHandler(@Context HttpServletRequest request) {
-        return viewerHandler.getPrintableHtmlHandler(request);
+    public Object getPrintableHtmlHandler(@Context HttpServletRequest request, @Context HttpServletResponse response) {
+        return viewerHandler.getPrintableHtmlHandler(request, response);
     }
 
     @GET
     @Path(value = GET_PRINTABLE_HTML_HANDLER)
     @Override
-    public Object getPrintableHtmlHandler(@QueryParam("callback") String callback, @QueryParam("data") String data, @Context HttpServletRequest request) {
-        return viewerHandler.getPrintableHtmlHandler(callback, data, request);
+    public Object getPrintableHtmlHandler(@QueryParam("callback") String callback, @QueryParam("data") String data, @Context HttpServletRequest request, @Context HttpServletResponse response) {
+        return viewerHandler.getPrintableHtmlHandler(callback, data, request, response);
     }
     
     @POST
