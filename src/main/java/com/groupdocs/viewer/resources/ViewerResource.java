@@ -7,6 +7,7 @@ import com.groupdocs.viewer.domain.FilePath;
 import com.groupdocs.viewer.domain.FileUrl;
 import com.groupdocs.viewer.domain.GroupDocsPath;
 import com.groupdocs.viewer.domain.TokenId;
+import com.groupdocs.viewer.handler.CustomInputDataHandler;
 import com.groupdocs.viewer.handlers.ViewerHandler;
 import com.groupdocs.viewer.views.ViewerView;
 import com.sun.jersey.multipart.FormDataParam;
@@ -39,7 +40,7 @@ public class ViewerResource extends GroupDocsViewer{
         boolean auth = configuration.useAuthorization();
         boolean useCache = configuration.useCache();
         ServiceConfiguration config = new ServiceConfiguration(appPath, basePath, licensePath, auth, useCache);
-        viewerHandler = new ViewerHandler(config);
+        viewerHandler = new ViewerHandler(config/*, new CustomInputDataHandler(config)*/);
     }
 
     @GET
