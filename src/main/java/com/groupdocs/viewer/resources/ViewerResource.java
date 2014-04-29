@@ -39,7 +39,8 @@ public class ViewerResource extends GroupDocsViewer{
         String licensePath = configuration.getLicensePath();
         boolean auth = configuration.useAuthorization();
         boolean useCache = configuration.useCache();
-        ServiceConfiguration config = new ServiceConfiguration(appPath, basePath, licensePath, auth, useCache);
+        int width = configuration.getWidth();
+        ServiceConfiguration config = new ServiceConfiguration(appPath, basePath, licensePath, auth, useCache, width);
         viewerHandler = new ViewerHandler(config/*, new CustomInputDataHandler(config)*/);
     }
 
