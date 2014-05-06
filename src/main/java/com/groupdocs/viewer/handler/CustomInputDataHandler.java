@@ -27,7 +27,7 @@ public class CustomInputDataHandler extends InputDataHandler{
     public HashMap<String, String> getFileList(String directory) {
         File[] files = new File(basePath + directory).listFiles();
         for (File file : files) {
-            String fileId = Utils.encodeData(file.getAbsolutePath());
+            String fileId = Utils.encodeData(file.getName());
             fileId2FilePath.put(fileId, file.getAbsolutePath());
             fileId2FileName.put(fileId, file.getName());
         }
