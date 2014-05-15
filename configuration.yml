@@ -40,6 +40,9 @@ expirationDate: 5
 #Use cache generated files
 useCache: true
 
+#Encryption key
+encKey: GroupDocsEncrypt
+
 #*******************************
 # FRONT-END (UI) CONFIGURATION
 #*******************************

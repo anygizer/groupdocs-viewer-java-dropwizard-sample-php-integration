@@ -40,7 +40,8 @@ public class ViewerResource extends GroupDocsViewer{
         boolean auth = configuration.useAuthorization();
         boolean useCache = configuration.useCache();
         int width = configuration.getWidth();
-        ServiceConfiguration config = new ServiceConfiguration(appPath, basePath, licensePath, auth, useCache, width);
+        String encryptionKey = configuration.getEncKey();
+        ServiceConfiguration config = new ServiceConfiguration(appPath, basePath, licensePath, auth, useCache, width, encryptionKey);
         viewerHandler = new ViewerHandler(config/*, new CustomInputDataHandler(config)*/);
     }
 
@@ -62,7 +63,7 @@ public class ViewerResource extends GroupDocsViewer{
         }else if(filePath != null && !filePath.isEmpty()){
             gPath = new FilePath(filePath, viewerHandler.getConfiguration());
         }else if(tokenId != null && !tokenId.isEmpty()){
-            TokenId tki = new TokenId(tokenId);
+            TokenId tki = new TokenId(tokenId, configuration.getEncKey());
             if(tki.isExpired()){
                 return getViewer("");
             }

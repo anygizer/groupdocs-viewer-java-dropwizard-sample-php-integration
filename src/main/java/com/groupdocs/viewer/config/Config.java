@@ -146,6 +146,11 @@ public class Config extends Configuration implements AssetsBundleConfiguration{
     @NotNull
     @JsonProperty
     private boolean useInnerThumbnails;
+    
+    @Valid
+    @NotNull
+    @JsonProperty
+    private String encKey;
 
     @Override
     public AssetsConfiguration getAssetsConfiguration() {
@@ -275,6 +280,10 @@ public class Config extends Configuration implements AssetsBundleConfiguration{
 
     public boolean isUseInnerThumbnails() {
         return useInnerThumbnails;
+    }
+
+    public String getEncKey() {
+        return encKey;
     }
     
 }
