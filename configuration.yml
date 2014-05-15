@@ -41,6 +41,7 @@ expirationDate: 5
 useCache: true
 
 #Encryption key
+#NOTE: key must be 16 characters long!
 encKey: GroupDocsEncrypt
 
 #*******************************
