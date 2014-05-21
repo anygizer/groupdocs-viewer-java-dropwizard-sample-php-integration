@@ -23,7 +23,7 @@ applicationPath: http://127.0.0.1:8080
 #Example: E:/Projects/GroupDocs/
 assets:
   overrides:
-    /assets: E:\Projects\GroupDocs\app\xFiles
+    /assets: E:/Projects/GroupDocs/app/xFiles
   mimeTypes:
     woff: application/font-woff
 
