@@ -1,7 +1,7 @@
 #Licence path
 #Set path to licence file
 #ATTENTION: If you don't have a licence file leave licencePath as it is
-#Example: E:\\Projects\\GroupDocs\\app\\Resources\\Aspose License\\GroupDocs.Viewer.Java.lic
+#Example: E:/Projects/GroupDocs/app/Resources/Aspose License/GroupDocs.Viewer.Java.lic
 licensePath: null
 
 #Server configuration
@@ -51,7 +51,7 @@ encKey: GroupDocsEncrypt
 #HTML output
 #If true all documents will be converted to HTML instead of images
 #ATTENTION: if this flag is set to 'true' useCache flag should be 'true' as well
-useHtmlBasedEngine: false
+useHtmlBasedEngine: true
 
 #Quality
 #Default quality of generated images
