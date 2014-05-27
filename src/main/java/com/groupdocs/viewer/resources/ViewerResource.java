@@ -106,8 +106,8 @@ public class ViewerResource extends GroupDocsViewer{
     @GET
     @Path(value = GET_FILE_HANDLER)
     @Override
-    public void getFileHandler(@QueryParam("path") String path, @Context HttpServletResponse response) throws Exception{
-        viewerHandler.getFileHandler(path, response);
+    public void getFileHandler(@QueryParam("path") String path, @QueryParam("getPdf") boolean getPdf, @Context HttpServletResponse response) throws Exception{
+        viewerHandler.getFileHandler(path, getPdf, response);
     }
 
     @GET
