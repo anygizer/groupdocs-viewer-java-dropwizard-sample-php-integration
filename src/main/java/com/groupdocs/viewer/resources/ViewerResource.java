@@ -7,7 +7,6 @@ import com.groupdocs.viewer.domain.FilePath;
 import com.groupdocs.viewer.domain.FileUrl;
 import com.groupdocs.viewer.domain.GroupDocsPath;
 import com.groupdocs.viewer.domain.TokenId;
-import com.groupdocs.viewer.handler.CustomInputDataHandler;
 import com.groupdocs.viewer.handlers.ViewerHandler;
 import com.groupdocs.viewer.views.ViewerView;
 import com.sun.jersey.multipart.FormDataParam;
@@ -34,21 +33,16 @@ public class ViewerResource extends GroupDocsViewer{
     
     public ViewerResource(Config configuration) throws Exception{
         this.configuration = configuration;
-        String appPath = configuration.getApplicationPath();
-        String basePath = configuration.getBasePath();
-        String licensePath = configuration.getLicensePath();
-        boolean auth = configuration.useAuthorization();
-        boolean useCache = configuration.useCache();
-        int width = configuration.getWidth();
-        String encryptionKey = configuration.getEncKey();
-        ServiceConfiguration config = new ServiceConfiguration(appPath, basePath, licensePath, auth, useCache, width, encryptionKey);
+        ServiceConfiguration config = new ServiceConfiguration(configuration);
         viewerHandler = new ViewerHandler(config/*, new CustomInputDataHandler(config)*/);
     }
 
     @GET
     public ViewerView getViewer(String filePath){
         try {
-            return new ViewerView(viewerHandler.getHeader(), viewerHandler.getLocale(), filePath, configuration);
+            String viewerId = "test";
+            String locale = null;
+            return new ViewerView(viewerHandler.getHeader(), viewerHandler.getViewerScript(viewerId, filePath, locale));
         } catch (IOException ex) {
             return null;
         }
@@ -63,7 +57,7 @@ public class ViewerResource extends GroupDocsViewer{
         }else if(filePath != null && !filePath.isEmpty()){
             gPath = new FilePath(filePath, viewerHandler.getConfiguration());
         }else if(tokenId != null && !tokenId.isEmpty()){
-            TokenId tki = new TokenId(tokenId, configuration.getEncKey());
+            TokenId tki = new TokenId(tokenId, configuration.getEncryptionKey());
             if(tki.isExpired()){
                 return getViewer("");
             }

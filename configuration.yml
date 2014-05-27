@@ -42,7 +42,7 @@ useCache: true
 
 #Encryption key
 #NOTE: key must be 16 characters long!
-encKey: GroupDocsEncrypt
+encryptionKey: GroupDocsEncrypt
 
 #*******************************
 # FRONT-END (UI) CONFIGURATION
@@ -80,6 +80,10 @@ width: 1000
 #Viewer height
 height: 650
 
+#Background color
+#NOTE: leave empty for default
+backgroundColor:
+
 #Show folder browser button
 showFolderBrowser: true
 
@@ -104,14 +108,84 @@ showSearch: true
 #Pre-load pages count
 preloadPagesCount: 0
 
+#Viewer style
+viewerStyle: 1
+
 #Support text selection
 supportTextSelection: true
 
 #Use pdf printing
 usePdfPrinting: false
 
+#Toolbar buttons box shadow style
+#NOTE: leave empty for default
+toolbarButtonsBoxShadowStyle:
+
+#Toolbar buttons box shadow hover style
+#NOTE: leave empty for default
+toolbarButtonsBoxShadowHoverStyle:
+
+#Thumbnails container background color
+#NOTE: leave empty for default
+thumbnailsContainerBackgroundColor:
+
+#Thumbnails container border right color
+#NOTE: leave empty for default
+thumbnailsContainerBorderRightColor:
+
+#Toolbar border bottom color
+#NOTE: leave empty for default
+toolbarBorderBottomColor:
+
+#Toolbar input field border color
+#NOTE: leave empty for default
+toolbarInputFieldBorderColor:
+
+#Toolbar button border color
+#NOTE: leave empty for default
+toolbarButtonBorderColor:
+
+#Toolbar button border hover color
+#NOTE: leave empty for default
+toolbarButtonBorderHoverColor:
+
+#Thumbnails container width
+#NOTE: minimum 0
+thumbnailsContainerWidth: 0
+
+#Show download errors in popup
+showDownloadErrorsInPopup: false
+
+#Show image width
+showImageWidth: false
+
 #Show header
 showHeader: true
 
+#Minimum image width
+minimumImageWidth: 0
+
+#Enable standard error handling
+enableStandardErrorHandling: true
+
+#Use image based printing
+useImageBasedPrinting: true
+
+#Download file as PDF
+downloadPdfFile: false
+
+#Search for separate words
+searchForSeparateWords: false
+
+#preventTouchEventsBubbling
+preventTouchEventsBubbling: false
+
 #Use innet thumbnails
 useInnerThumbnails: true
+
+#Watermark text
+# NOTE: leave empty if there is no need in watermark text
+watermarkText:
+
+#Support page re-ordering
+supportPageReordering: false
