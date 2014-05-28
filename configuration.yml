@@ -50,7 +50,7 @@ encryptionKey: GroupDocsEncrypt
 
 #HTML output
 #If true all documents will be converted to HTML instead of images
-#ATTENTION: if this flag is set to 'true' useCache flag should be 'true' as well
+#IMPORTANT: if this flag is set to 'true', useCache flag should be 'true' as well
 useHtmlBasedEngine: true
 
 #Quality
@@ -112,6 +112,8 @@ preloadPagesCount: 0
 viewerStyle: 1
 
 #Support text selection
+#Set if user will be able to select(copy) text
+#NOTE: 'false' will work only when useHtmlBasedEngine set to 'false' as well
 supportTextSelection: true
 
 #Use pdf printing
