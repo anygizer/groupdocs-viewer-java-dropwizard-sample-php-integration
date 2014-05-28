@@ -180,12 +180,40 @@ searchForSeparateWords: false
 #preventTouchEventsBubbling
 preventTouchEventsBubbling: false
 
-#Use innet thumbnails
+#Use inner thumbnails
 useInnerThumbnails: true
 
 #Watermark text
 # NOTE: leave empty if there is no need in watermark text
 watermarkText:
 
-#Support page re-ordering
+#Watermark color
+# NOTE: leave empty for default
+watermarkColor:
+
+#Support page reordering
 supportPageReordering: false
+
+#Only shrink large pages
+onlyShrinkLargePages: true
+
+#Search highlight color
+searchHighlightColor:
+
+#Current search highlight color
+currentSearchHighlightColor:
+
+#Treat phrases in double quotes as exact phrases
+treatPhrasesInDoubleQuotesAsExactPhrases: false
+
+#Use png images For html based engine
+usePngImagesForHtmlBasedEngine: false
+
+#Show one page in row
+showOnePageInRow: false
+
+#Load all pages on search
+loadAllPagesOnSearch: false
+
+#Use em scaling
+useEmScaling: false

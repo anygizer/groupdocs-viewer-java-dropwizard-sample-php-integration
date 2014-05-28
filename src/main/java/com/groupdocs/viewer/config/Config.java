@@ -255,7 +255,52 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     @Valid
     @NotNull
     @JsonProperty
+    private String watermarkColor;
+    
+    @Valid
+    @NotNull
+    @JsonProperty
     private boolean supportPageReordering;
+    
+    @Valid
+    @NotNull
+    @JsonProperty
+    private boolean onlyShrinkLargePages;
+    
+    @Valid
+    @NotNull
+    @JsonProperty
+    private String searchHighlightColor;
+    
+    @Valid
+    @NotNull
+    @JsonProperty
+    private String currentSearchHighlightColor;
+    
+    @Valid
+    @NotNull
+    @JsonProperty
+    private boolean treatPhrasesInDoubleQuotesAsExactPhrases;
+    
+    @Valid
+    @NotNull
+    @JsonProperty
+    private boolean usePngImagesForHtmlBasedEngine;
+    
+    @Valid
+    @NotNull
+    @JsonProperty
+    private boolean showOnePageInRow;
+    
+    @Valid
+    @NotNull
+    @JsonProperty
+    private boolean loadAllPagesOnSearch;
+    
+    @Valid
+    @NotNull
+    @JsonProperty
+    private boolean useEmScaling;
     
     public AssetsConfiguration getAssets() {
         return assets;
@@ -511,6 +556,51 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     @Override
     public boolean isSupportPageReordering() {
         return supportPageReordering;
+    }
+
+    @Override
+    public String getWatermarkColor() {
+        return watermarkColor;
+    }
+
+    @Override
+    public boolean isOnlyShrinkLargePages() {
+        return onlyShrinkLargePages;
+    }
+
+    @Override
+    public String getSearchHighlightColor() {
+        return searchHighlightColor;
+    }
+
+    @Override
+    public String getCurrentSearchHighlightColor() {
+        return currentSearchHighlightColor;
+    }
+
+    @Override
+    public boolean isTreatPhrasesInDoubleQuotesAsExactPhrases() {
+        return treatPhrasesInDoubleQuotesAsExactPhrases;
+    }
+
+    @Override
+    public boolean isUsePngImagesForHtmlBasedEngine() {
+        return usePngImagesForHtmlBasedEngine;
+    }
+
+    @Override
+    public boolean isShowOnePageInRow() {
+        return showOnePageInRow;
+    }
+
+    @Override
+    public boolean isLoadAllPagesOnSearch() {
+        return loadAllPagesOnSearch;
+    }
+
+    @Override
+    public boolean isUseEmScaling() {
+        return useEmScaling;
     }
 
 }
