@@ -223,4 +223,11 @@ public class ViewerResource extends GroupDocsViewer{
         viewerHandler.getDocumentPageHtmlHandler(request, response);
     }
 
+    @GET
+    @Path(value = GET_PDF_WITH_PRINT_DIALOG)
+    @Override
+    public void getPdfWithPrintDialog(@QueryParam("path") String path, @Context HttpServletResponse response){
+        viewerHandler.getPdfWithPrintDialog(path, response);
+    }
+
 }
