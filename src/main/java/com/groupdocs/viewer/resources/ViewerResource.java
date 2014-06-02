@@ -230,4 +230,10 @@ public class ViewerResource extends GroupDocsViewer{
         viewerHandler.getPdfWithPrintDialog(path, response);
     }
 
+    @POST
+    @Path(value = REORDER_PAGE_HANDLER)
+    @Override
+    public Object reorderPageHandler(@Context HttpServletRequest request, @Context HttpServletResponse response){
+        return viewerHandler.reorderPageHandler(request, response);
+    }
 }
