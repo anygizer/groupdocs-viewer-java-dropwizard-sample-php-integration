@@ -47,7 +47,7 @@ public class ViewerResource extends GroupDocsViewer{
             return null;
         }
     }
-    
+
     @GET
     @Path(value = VIEW)
     public ViewerView getView(@QueryParam("fileId") String fileId, @QueryParam("fileUrl") String fileUrl, @QueryParam("filePath") String filePath, @QueryParam("tokenId") String tokenId){
@@ -67,7 +67,17 @@ public class ViewerResource extends GroupDocsViewer{
         }
         return getViewer(gPath.getPath());
     }
-    
+
+    @GET
+    @Path(value = "/GetFilePath")
+    public Object getFilePath(@QueryParam("fileName") String fileName)
+    {
+        if(fileName == null || fileName.isEmpty()) return null;
+
+        GroupDocsPath gPath = new FilePath(fileName, viewerHandler.getConfiguration());
+        return gPath.getPath();
+    }
+
     @GET
     @Path(value = GET_JS_HANDLER)
     @Override
