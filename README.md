@@ -1,7 +1,7 @@
-GroupDocs Viewer for Java (Dropwizard Sample)
+GroupDocs.Viewer for Java (Dropwizard Sample) 2.2.0
 ==============================================
 
-1. Install GroupDocs Viewer for Java library into maven http://groupdocs.com/java/document-viewer-library
+1. Install GroupDocs.Viewer for Java library into maven http://groupdocs.com/java/document-viewer-library
 2. Download sample sources to any directory
 3. Open file `configuration.yml` and update configuration (eg: update assets to set the path to the storage folder)
 4. Run file `run.bat` to start sample application

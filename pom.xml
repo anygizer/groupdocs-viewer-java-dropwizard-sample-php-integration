@@ -2,8 +2,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.groupdocs</groupId>
-    <artifactId>viewer-dropwizard</artifactId>
+    <groupId>com.groupdocs.samples</groupId>
+    <artifactId>groupdocs-viewer-dropwizard</artifactId>
     <version>2.2.0</version>
     <packaging>jar</packaging>
 
@@ -42,7 +42,7 @@
         </dependency>
         <dependency>
             <groupId>com.groupdocs</groupId>
-            <artifactId>viewer</artifactId>
+            <artifactId>groupdocs-viewer</artifactId>
             <version>2.2.0</version>
             <type>jar</type>
         </dependency>
