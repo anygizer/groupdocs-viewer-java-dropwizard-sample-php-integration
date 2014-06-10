@@ -35,6 +35,11 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     @Valid
     @NotNull
     @JsonProperty
+    private boolean useBrowserCache;
+    
+    @Valid
+    @NotNull
+    @JsonProperty
     private int expirationDate;
     
     @Valid
@@ -336,6 +341,11 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     @Override
     public boolean isUseCache() {
         return useCache;
+    }
+    
+    @Override
+    public boolean isUseBrowserCache(){
+        return useBrowserCache;
     }
 
     @Override

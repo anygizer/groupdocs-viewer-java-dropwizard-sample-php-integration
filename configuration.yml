@@ -40,6 +40,10 @@ expirationDate: 5
 #Use cache generated files
 useCache: true
 
+#Browser cache
+#Use browser cache
+useBrowserCache: true
+
 #Encryption key
 #NOTE: key must be 16 characters long!
 encryptionKey: GroupDocsEncrypt
