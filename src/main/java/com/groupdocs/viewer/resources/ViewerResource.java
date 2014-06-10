@@ -41,7 +41,7 @@ public class ViewerResource extends GroupDocsViewer{
     public ViewerView getViewer(String filePath){
         try {
             String viewerId = "test";
-            String locale = null;
+            String locale = viewerHandler.getLocale();
             return new ViewerView(viewerHandler.getHeader(), viewerHandler.getViewerScript(viewerId, filePath, locale));
         } catch (IOException ex) {
             return null;
