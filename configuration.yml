@@ -13,12 +13,15 @@ http:
   port: 8080
   adminPort: 8081
 
-#Application Path
-#This path used in application for sending request
-#Application path can be absolute or relative
-#Example: http://127.0.0.1:8080 or just set prefix if application is running for example under http://127.0.0.1:8080/prefix
-#Note: application path can be null as well, this means that application root url will be used
-applicationPath: http://127.0.0.1:8080
+#Application path
+#Application path is used in application for receiving and sending requests
+#Path can be absolute, relative or null
+#applicationPath: http://127.0.0.1:8080
+#applicationPath: custom-url
+#Note: custom-url prefix will be used in addition to application and context path, ex: http://127.0.0.1:8080/custom-url
+#applicationPath: null
+#Note: null value will set default application request URI, in this case http://127.0.0.1:8080/
+applicationPath: null
   
 #Files path
 #Set root path for files and images
