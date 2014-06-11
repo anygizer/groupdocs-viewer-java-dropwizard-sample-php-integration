@@ -18,7 +18,6 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     private String licensePath;
     
     @Valid
-    @NotNull
     @JsonProperty
     private String applicationPath;
     

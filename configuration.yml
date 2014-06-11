@@ -15,6 +15,9 @@ http:
 
 #Application Path
 #This path used in application for sending request
+#Application path can be absolute or relative
+#Example: http://127.0.0.1:8080 or just set prefix if application is running for example under http://127.0.0.1:8080/prefix
+#Note: application path can be null as well, this means that application root url will be used
 applicationPath: http://127.0.0.1:8080
   
 #Files path
