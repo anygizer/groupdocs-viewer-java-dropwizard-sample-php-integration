@@ -42,6 +42,12 @@ useAuthorization: false
 #Set to 0 if file is never expired
 expirationDate: 5
 
+#Locales path
+#Locales path is used to change application locale if supported
+#If locales path is null, then viewer's default locales will be used
+#Note: locales path is a directory path, do not specify full path to locale file. System will automatically detect system locale and set it using one of the existing locales from specified directory.
+localesPath: null
+
 #Cache
 #Use cache generated files
 useCache: true

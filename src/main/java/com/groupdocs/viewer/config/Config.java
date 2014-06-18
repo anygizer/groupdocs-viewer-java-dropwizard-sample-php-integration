@@ -47,6 +47,10 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     private String encryptionKey;
     
     @Valid
+    @JsonProperty
+    private String localesPath;
+    
+    @Valid
     @NotNull
     @JsonProperty
     private final AssetsConfiguration assets = new AssetsConfiguration();
@@ -355,6 +359,11 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     @Override
     public String getEncryptionKey() {
         return encryptionKey;
+    }
+
+    @Override
+    public String getLocalesPath() {
+        return localesPath;
     }
 
     @Override
