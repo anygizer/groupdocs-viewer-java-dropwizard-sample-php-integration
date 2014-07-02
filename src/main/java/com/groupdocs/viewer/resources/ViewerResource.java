@@ -69,6 +69,24 @@ public class ViewerResource extends GroupDocsViewer{
     }
     
     @GET
+    @Path(value = GET_FILENET)
+    public ViewerView getFileNetView(@QueryParam("fileUrl") String fileUrl, @QueryParam("vsId") String vsId, @QueryParam("objectStoreName") String objectStoreName, @QueryParam("objectType") String objectType, @QueryParam("folderId") String folderId, @QueryParam("fileType") String fileType){
+        StringBuilder sb = new StringBuilder(fileUrl);
+        sb.append("?vsId=");
+        sb.append(vsId);
+        sb.append("&objectStoreName=");
+        sb.append(objectStoreName);
+        sb.append("&objectType=");
+        sb.append(objectType);
+        sb.append("&folderId=");
+        sb.append(folderId);
+        sb.append("&fileType=");
+        sb.append(fileType);
+        GroupDocsPath gPath = new FileUrl(sb.toString());
+        return getViewer(gPath.getPath());
+    }
+    
+    @GET
     @Path(value = GET_JS_HANDLER)
     @Override
     public void getJsHandler(@QueryParam("script") String scriptName, @Context HttpServletResponse response) throws IOException {
