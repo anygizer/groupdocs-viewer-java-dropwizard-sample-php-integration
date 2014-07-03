@@ -2,12 +2,9 @@ package com.groupdocs.viewer.resources;
 
 import com.groupdocs.viewer.config.Config;
 import com.groupdocs.viewer.config.ServiceConfiguration;
-import com.groupdocs.viewer.domain.FileId;
-import com.groupdocs.viewer.domain.FilePath;
-import com.groupdocs.viewer.domain.FileUrl;
-import com.groupdocs.viewer.domain.GroupDocsPath;
-import com.groupdocs.viewer.domain.TokenId;
 import com.groupdocs.viewer.domain.path.EncodedPath;
+import com.groupdocs.viewer.domain.path.GroupDocsPath;
+import com.groupdocs.viewer.domain.path.TokenId;
 import com.groupdocs.viewer.handlers.ViewerHandler;
 import com.groupdocs.viewer.views.ViewerView;
 import com.sun.jersey.multipart.FormDataParam;
