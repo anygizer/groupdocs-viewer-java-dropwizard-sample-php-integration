@@ -7,6 +7,7 @@ import com.groupdocs.viewer.domain.FilePath;
 import com.groupdocs.viewer.domain.FileUrl;
 import com.groupdocs.viewer.domain.GroupDocsPath;
 import com.groupdocs.viewer.domain.TokenId;
+import com.groupdocs.viewer.domain.path.EncodedPath;
 import com.groupdocs.viewer.handlers.ViewerHandler;
 import com.groupdocs.viewer.views.ViewerView;
 import com.sun.jersey.multipart.FormDataParam;
@@ -50,22 +51,17 @@ public class ViewerResource extends GroupDocsViewer{
     
     @GET
     @Path(value = VIEW)
-    public ViewerView getView(@QueryParam("fileId") String fileId, @QueryParam("fileUrl") String fileUrl, @QueryParam("filePath") String filePath, @QueryParam("tokenId") String tokenId){
-        GroupDocsPath gPath;
-        if(fileId !=null && !fileId.isEmpty()){
-            gPath = new FileId(fileId);
-        }else if(filePath != null && !filePath.isEmpty()){
-            gPath = new FilePath(filePath, viewerHandler.getConfiguration());
+    public ViewerView getView(@QueryParam("file") String file, @QueryParam("tokenId") String tokenId){
+        GroupDocsPath path = null;
+        if(file != null && !file.isEmpty()){
+            path = new EncodedPath(file, viewerHandler.getConfiguration());
         }else if(tokenId != null && !tokenId.isEmpty()){
             TokenId tki = new TokenId(tokenId, configuration.getEncryptionKey());
-            if(tki.isExpired()){
-                return getViewer("");
+            if(!tki.isExpired()){
+                path = tki;
             }
-            gPath = tki;
-        }else{
-            gPath = new FileUrl(fileUrl);
         }
-        return getViewer(gPath.getPath());
+        return getViewer((path == null) ? "" : path.getPath());
     }
     
     @GET
@@ -82,8 +78,8 @@ public class ViewerResource extends GroupDocsViewer{
         sb.append(folderId);
         sb.append("&fileType=");
         sb.append(fileType);
-        GroupDocsPath gPath = new FileUrl(sb.toString());
-        return getViewer(gPath.getPath());
+        GroupDocsPath path = new EncodedPath(sb.toString(), viewerHandler.getConfiguration());
+        return getViewer(path.getPath());
     }
     
     @GET
