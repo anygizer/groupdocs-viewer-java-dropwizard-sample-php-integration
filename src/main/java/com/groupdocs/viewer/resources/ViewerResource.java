@@ -36,16 +36,10 @@ public class ViewerResource extends GroupDocsViewer{
     }
 
     @GET
-    public ViewerView getViewer(String filePath){
-        try {
-            String viewerId = "test";
-            String locale = viewerHandler.getLocale();
-            return new ViewerView(viewerHandler.getHeader(), viewerHandler.getViewerScript(viewerId, filePath, locale));
-        } catch (IOException ex) {
-            return null;
-        }
+    public ViewerView getViewer(){
+        return getView("");
     }
-    
+
     @GET
     @Path(value = VIEW)
     public ViewerView getView(@QueryParam("file") String file, @QueryParam("tokenId") String tokenId){
@@ -58,7 +52,7 @@ public class ViewerResource extends GroupDocsViewer{
                 path = tki;
             }
         }
-        return getViewer((path == null) ? "" : path.getPath());
+        return getView((path == null) ? "" : path.getPath());
     }
     
     @GET
@@ -76,56 +70,66 @@ public class ViewerResource extends GroupDocsViewer{
         sb.append("&fileType=");
         sb.append(fileType);
         GroupDocsPath path = new EncodedPath(sb.toString(), viewerHandler.getConfiguration());
-        return getViewer(path.getPath());
+        return getView(path.getPath());
+    }
+    
+    private ViewerView getView(String filePath){
+        try {
+            String viewerId = "test";
+            String locale = viewerHandler.getLocale();
+            return new ViewerView(viewerHandler.getHeader(), viewerHandler.getViewerScript(viewerId, filePath, locale));
+        } catch (IOException ex) {
+            return null;
+        }
     }
     
     @GET
     @Path(value = GET_JS_HANDLER)
     @Override
-    public void getJsHandler(@QueryParam("script") String scriptName, @Context HttpServletResponse response) throws IOException {
-        viewerHandler.getJsHandler(scriptName, response);
+    public Object getJsHandler(@QueryParam("script") String scriptName, @Context HttpServletResponse response) throws IOException {
+        return viewerHandler.getJsHandler(scriptName, response);
     }
 
     @GET
     @Path(value = GET_CSS_HANDLER)
     @Override
-    public void getCssHandler(@QueryParam("script") String cssName, @Context HttpServletResponse response) throws IOException {
-        viewerHandler.getCssHandler(cssName, response);
+    public Object getCssHandler(@QueryParam("script") String cssName, @Context HttpServletResponse response) throws IOException {
+        return viewerHandler.getCssHandler(cssName, response);
     }
 
     @GET
     @Path(value = GET_IMAGE_HANDLER)
     @Override
-    public void getImageHandler(@PathParam("name") String imageName, @Context HttpServletResponse response) throws IOException {
-        viewerHandler.getImageHandler(imageName, response);
+    public Object getImageHandler(@PathParam("name") String imageName, @Context HttpServletResponse response) throws IOException {
+        return viewerHandler.getImageHandler(imageName, response);
     }
     
     @GET
     @Path(value = GET_FONT_HANDLER)
     @Override
-    public void getFontHandler(@PathParam("name") String fontName, @Context HttpServletResponse response) throws IOException {
-        viewerHandler.getFontHandler(fontName, response);
+    public Object getFontHandler(@PathParam("name") String fontName, @Context HttpServletResponse response) throws IOException {
+        return viewerHandler.getFontHandler(fontName, response);
     }
     
     @GET
     @Path(value = GET_HTML_RESOURCES_HANDLER)
     @Override
-    public void getHtmlRecoucesHandler(@QueryParam("filePath") String filePath, @Context HttpServletResponse response) throws FileNotFoundException, IOException {
-        viewerHandler.getHtmlRecoucesHandler(filePath, response);
+    public Object getHtmlRecoucesHandler(@QueryParam("filePath") String filePath, @Context HttpServletResponse response) throws FileNotFoundException, IOException {
+        return viewerHandler.getHtmlRecoucesHandler(filePath, response);
     }
 
     @GET
     @Path(value = GET_FILE_HANDLER)
     @Override
-    public void getFileHandler(@QueryParam("path") String path, @QueryParam("getPdf") boolean getPdf, @Context HttpServletResponse response) throws Exception{
-        viewerHandler.getFileHandler(path, getPdf, response);
+    public Object getFileHandler(@QueryParam("path") String path, @QueryParam("getPdf") boolean getPdf, @Context HttpServletResponse response) throws Exception{
+        return viewerHandler.getFileHandler(path, getPdf, response);
     }
 
     @GET
     @Path(value=GET_DOCUMENT_PAGE_IMAGE_HANDLER)
     @Override
-    public void getDocumentPageImageHandler(@QueryParam("path") String path, @QueryParam("width") Integer width, @QueryParam("quality") Integer quality, @QueryParam("usePdf") Boolean usePdf, @QueryParam("pageIndex") Integer pageIndex, @Context HttpServletResponse response) throws Exception{
-        viewerHandler.getDocumentPageImageHandler(path, width, quality, usePdf, pageIndex, response);
+    public Object getDocumentPageImageHandler(@QueryParam("path") String path, @QueryParam("width") Integer width, @QueryParam("quality") Integer quality, @QueryParam("usePdf") Boolean usePdf, @QueryParam("pageIndex") Integer pageIndex, @Context HttpServletResponse response) throws Exception{
+        return viewerHandler.getDocumentPageImageHandler(path, width, quality, usePdf, pageIndex, response);
     }
 
     @POST
@@ -230,15 +234,15 @@ public class ViewerResource extends GroupDocsViewer{
     @POST
     @Path(value = GET_DOCUMENT_PAGE_HTML_HANDLER)
     @Override
-    public void getDocumentPageHtmlHandler(@Context HttpServletRequest request, @Context HttpServletResponse response){
-        viewerHandler.getDocumentPageHtmlHandler(request, response);
+    public Object getDocumentPageHtmlHandler(@Context HttpServletRequest request, @Context HttpServletResponse response){
+        return viewerHandler.getDocumentPageHtmlHandler(request, response);
     }
 
     @GET
     @Path(value = GET_PDF_WITH_PRINT_DIALOG)
     @Override
-    public void getPdfWithPrintDialog(@QueryParam("path") String path, @Context HttpServletResponse response){
-        viewerHandler.getPdfWithPrintDialog(path, response);
+    public Object getPdfWithPrintDialog(@QueryParam("path") String path, @Context HttpServletResponse response){
+        return viewerHandler.getPdfWithPrintDialog(path, response);
     }
 
     @POST

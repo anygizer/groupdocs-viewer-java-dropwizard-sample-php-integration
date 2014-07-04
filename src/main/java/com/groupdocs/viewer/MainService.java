@@ -2,6 +2,7 @@ package com.groupdocs.viewer;
 
 import com.bazaarvoice.dropwizard.assets.ConfiguredAssetsBundle;
 import com.groupdocs.viewer.config.Config;
+import com.groupdocs.viewer.health.TemplateHealthCheck;
 import com.groupdocs.viewer.resources.ViewerResource;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.config.Bootstrap;
@@ -33,5 +34,8 @@ public class MainService extends Service<Config>{
         FilterBuilder filterConfig = enviroment.addFilter(CrossOriginFilter.class, "/*");
         filterConfig.setInitParam(CrossOriginFilter.ACCESS_CONTROL_ALLOW_ORIGIN_HEADER, "*");
         enviroment.addResource(new ViewerResource(config));
+        // Adding dummy health check
+        final TemplateHealthCheck healthCheck = new TemplateHealthCheck("");
+        enviroment.addHealthCheck(healthCheck);
     }
 }
