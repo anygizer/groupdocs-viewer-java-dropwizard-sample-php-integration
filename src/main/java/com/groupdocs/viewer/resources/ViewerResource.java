@@ -8,7 +8,6 @@ import com.groupdocs.viewer.domain.path.TokenId;
 import com.groupdocs.viewer.handlers.ViewerHandler;
 import com.groupdocs.viewer.views.ViewerView;
 import com.sun.jersey.multipart.FormDataParam;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -86,49 +85,49 @@ public class ViewerResource extends GroupDocsViewer{
     @GET
     @Path(value = GET_JS_HANDLER)
     @Override
-    public Object getJsHandler(@QueryParam("script") String scriptName, @Context HttpServletResponse response) throws IOException {
+    public Object getJsHandler(@QueryParam("script") String scriptName, @Context HttpServletResponse response){
         return viewerHandler.getJsHandler(scriptName, response);
     }
 
     @GET
     @Path(value = GET_CSS_HANDLER)
     @Override
-    public Object getCssHandler(@QueryParam("script") String cssName, @Context HttpServletResponse response) throws IOException {
+    public Object getCssHandler(@QueryParam("script") String cssName, @Context HttpServletResponse response){
         return viewerHandler.getCssHandler(cssName, response);
     }
 
     @GET
     @Path(value = GET_IMAGE_HANDLER)
     @Override
-    public Object getImageHandler(@PathParam("name") String imageName, @Context HttpServletResponse response) throws IOException {
+    public Object getImageHandler(@PathParam("name") String imageName, @Context HttpServletResponse response){
         return viewerHandler.getImageHandler(imageName, response);
     }
     
     @GET
     @Path(value = GET_FONT_HANDLER)
     @Override
-    public Object getFontHandler(@PathParam("name") String fontName, @Context HttpServletResponse response) throws IOException {
+    public Object getFontHandler(@PathParam("name") String fontName, @Context HttpServletResponse response){
         return viewerHandler.getFontHandler(fontName, response);
     }
     
     @GET
     @Path(value = GET_HTML_RESOURCES_HANDLER)
     @Override
-    public Object getHtmlRecoucesHandler(@QueryParam("filePath") String filePath, @Context HttpServletResponse response) throws FileNotFoundException, IOException {
+    public Object getHtmlRecoucesHandler(@QueryParam("filePath") String filePath, @Context HttpServletResponse response){
         return viewerHandler.getHtmlRecoucesHandler(filePath, response);
     }
 
     @GET
     @Path(value = GET_FILE_HANDLER)
     @Override
-    public Object getFileHandler(@QueryParam("path") String path, @QueryParam("getPdf") boolean getPdf, @Context HttpServletResponse response) throws Exception{
+    public Object getFileHandler(@QueryParam("path") String path, @QueryParam("getPdf") boolean getPdf, @Context HttpServletResponse response){
         return viewerHandler.getFileHandler(path, getPdf, response);
     }
 
     @GET
     @Path(value=GET_DOCUMENT_PAGE_IMAGE_HANDLER)
     @Override
-    public Object getDocumentPageImageHandler(@QueryParam("path") String path, @QueryParam("width") Integer width, @QueryParam("quality") Integer quality, @QueryParam("usePdf") Boolean usePdf, @QueryParam("pageIndex") Integer pageIndex, @Context HttpServletResponse response) throws Exception{
+    public Object getDocumentPageImageHandler(@QueryParam("path") String path, @QueryParam("width") Integer width, @QueryParam("quality") Integer quality, @QueryParam("usePdf") Boolean usePdf, @QueryParam("pageIndex") Integer pageIndex, @Context HttpServletResponse response){
         return viewerHandler.getDocumentPageImageHandler(path, width, quality, usePdf, pageIndex, response);
     }
 
