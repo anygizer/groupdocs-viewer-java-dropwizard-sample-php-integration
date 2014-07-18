@@ -1,7 +1,7 @@
 #Licence path
 #Set path to licence file
 #ATTENTION: If you don't have a licence file leave licencePath as it is
-#Example: E:/Projects/GroupDocs/app/Resources/Aspose License/GroupDocs.Viewer.Java.lic
+#Example: E:/Projects/GroupDocs/app/Resources/Aspose License/viewer/GroupDocs.Viewer.Java.lic
 licensePath: null
 
 #Server configuration
