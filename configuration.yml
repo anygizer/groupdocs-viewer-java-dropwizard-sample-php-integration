@@ -91,7 +91,7 @@ zoomToFitHeight: false
 #Width
 #Viewer width
 #Note: set 0 to use 100% initial width
-width: 1000
+width: 0
 
 #Height
 #Viewer height
