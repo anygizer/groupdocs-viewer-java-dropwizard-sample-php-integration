@@ -1,4 +1,4 @@
-GroupDocs.Viewer for Java (Dropwizard Sample) 2.3.0
+GroupDocs.Viewer for Java (Dropwizard Sample) 2.4.0
 ==============================================
 
 1. Install GroupDocs.Viewer for Java library into maven http://groupdocs.com/java/document-viewer-library
