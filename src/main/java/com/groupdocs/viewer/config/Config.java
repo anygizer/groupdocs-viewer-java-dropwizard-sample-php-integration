@@ -51,6 +51,10 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     private String localesPath;
     
     @Valid
+    @JsonProperty
+    private String uploadPath;
+    
+    @Valid
     @NotNull
     @JsonProperty
     private final AssetsConfiguration assets = new AssetsConfiguration();
@@ -364,6 +368,11 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     @Override
     public String getLocalesPath() {
         return localesPath;
+    }
+
+    @Override
+    public String getUploadPath() {
+        return uploadPath;
     }
 
     @Override
