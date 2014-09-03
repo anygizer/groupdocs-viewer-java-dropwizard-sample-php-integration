@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>GroupDocs.Viewer for Java Sample</title>
+        <title>GroupDocs.Viewer for Java Dropwizard Sample</title>
         ${headerElems}
         <script>
             $(document).ready(function(){
