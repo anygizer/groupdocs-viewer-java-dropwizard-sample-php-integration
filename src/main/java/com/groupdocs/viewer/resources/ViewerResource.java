@@ -176,20 +176,6 @@ public class ViewerResource extends GroupDocsViewer{
     }
 
     @POST
-    @Path(value = GET_PDF_2_JAVA_SCRIPT_HANDLER)
-    @Override
-    public Object getPdf2JavaScriptHandler(@Context HttpServletRequest request, @Context HttpServletResponse response) {
-        return viewerHandler.getPdf2JavaScriptHandler(request, response);
-    }
-
-    @GET
-    @Path(value = GET_PDF_2_JAVA_SCRIPT_HANDLER)
-    @Override
-    public Object getPdf2JavaScriptHandler(@QueryParam("callback") String callback, @QueryParam("data") String data, @Context HttpServletResponse response) {
-        return viewerHandler.getPdf2JavaScriptHandler(callback, data, response);
-    }
-
-    @POST
     @Path(value = GET_PRINTABLE_HTML_HANDLER)
     @Override
     public Object getPrintableHtmlHandler(@Context HttpServletRequest request, @Context HttpServletResponse response) {
