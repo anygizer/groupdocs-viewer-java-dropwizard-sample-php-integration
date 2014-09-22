@@ -66,6 +66,10 @@ useBrowserCache: true
 #NOTE: key must be 16 characters long!
 encryptionKey: GroupDocsEncrypt
 
+#Total max cache size for temp directory (in MB)
+#Set null or 0 for unlimited size
+maxCacheSize: 2
+
 #*******************************
 # FRONT-END (UI) CONFIGURATION
 #*******************************

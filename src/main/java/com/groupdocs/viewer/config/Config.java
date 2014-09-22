@@ -314,6 +314,10 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     @JsonProperty
     private boolean useEmScaling;
     
+    @Valid
+    @JsonProperty
+    private Long maxCacheSize;
+    
     public AssetsConfiguration getAssets() {
         return assets;
     }
@@ -628,6 +632,11 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     @Override
     public boolean isUseEmScaling() {
         return useEmScaling;
+    }
+
+    @Override
+    public Long getMaxCacheSize() {
+        return maxCacheSize;
     }
 
 }
