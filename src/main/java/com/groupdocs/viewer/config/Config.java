@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.yammer.dropwizard.config.Configuration;
 import java.util.Map;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -22,27 +21,22 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     private String applicationPath;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean useAuthorization;
+    private Boolean useAuthorization;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean useCache;
+    private Boolean useCache;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean useBrowserCache;
+    private Boolean useBrowserCache;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private int expirationDate;
+    private Integer expirationDate;
     
     @Valid
-    @NotNull
     @JsonProperty
     private String encryptionKey;
     
@@ -55,268 +49,252 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     private String uploadPath;
     
     @Valid
-    @NotNull
     @JsonProperty
     private final AssetsConfiguration assets = new AssetsConfiguration();
     
     @Valid
-    @NotNull
     @JsonProperty
-    private int quality;
+    private Integer quality;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean showThumbnails;
+    private Boolean showThumbnails;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean openThumbnails;
+    private Boolean openThumbnails;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private int initialZoom;
+    private Integer initialZoom;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean zoomToFitWidth;
+    private Boolean zoomToFitWidth;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean zoomToFitHeight;
+    private Boolean zoomToFitHeight;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private int width;
+    private Integer width;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private int height;
+    private Integer height;
     
     @Valid
-    @NotNull
     @JsonProperty
     private String backgroundColor;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean showFolderBrowser;
+    private Boolean showFolderBrowser;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean showPrint;
+    private Boolean showPrint;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean showDownload;
+    private Boolean showDownload;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean showZoom;
+    private Boolean showZoom;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean showPaging;
+    private Boolean showPaging;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean showViewerStyleControl;
+    private Boolean showViewerStyleControl;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean showSearch;
+    private Boolean showSearch;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private int preloadPagesCount;
+    private Integer preloadPagesCount;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private int viewerStyle;
+    private Integer viewerStyle;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean supportTextSelection;
+    private Boolean supportTextSelection;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean usePdfPrinting;
+    private Boolean usePdfPrinting;
     
     @Valid
-    @NotNull
     @JsonProperty
     private String toolbarButtonsBoxShadowStyle;
     
     @Valid
-    @NotNull
     @JsonProperty
     private String toolbarButtonsBoxShadowHoverStyle;
     
     @Valid
-    @NotNull
     @JsonProperty
     private String thumbnailsContainerBackgroundColor;
     
     @Valid
-    @NotNull
     @JsonProperty
     private String thumbnailsContainerBorderRightColor;
     
     @Valid
-    @NotNull
     @JsonProperty
     private String toolbarBorderBottomColor;
     
     @Valid
-    @NotNull
     @JsonProperty
     private String toolbarInputFieldBorderColor;
     
     @Valid
-    @NotNull
     @JsonProperty
     private String toolbarButtonBorderColor;
     
     @Valid
-    @NotNull
     @JsonProperty
     private String toolbarButtonBorderHoverColor;
      
     @Valid
-    @NotNull
     @JsonProperty
-    private int thumbnailsContainerWidth;
+    private Integer thumbnailsContainerWidth;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean showDownloadErrorsInPopup;
+    private Boolean showDownloadErrorsInPopup;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean showImageWidth;
+    private Boolean showImageWidth;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean showHeader;
+    private Boolean showHeader;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private int minimumImageWidth;
+    private Integer minimumImageWidth;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean enableStandardErrorHandling;
+    private Boolean enableStandardErrorHandling;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean useHtmlBasedEngine;
+    private Boolean useHtmlBasedEngine;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean useImageBasedPrinting;
+    private Boolean useImageBasedPrinting;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean downloadPdfFile;
+    private Boolean downloadPdfFile;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean searchForSeparateWords;
+    private Boolean searchForSeparateWords;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean preventTouchEventsBubbling;
+    private Boolean preventTouchEventsBubbling;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean useInnerThumbnails;
+    private Boolean useInnerThumbnails;
     
     @Valid
-    @NotNull
     @JsonProperty
     private String watermarkText;
     
     @Valid
-    @NotNull
     @JsonProperty
     private String watermarkColor;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean supportPageReordering;
+    private Boolean supportPageReordering;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean onlyShrinkLargePages;
+    private Boolean onlyShrinkLargePages;
     
     @Valid
-    @NotNull
     @JsonProperty
     private String searchHighlightColor;
     
     @Valid
-    @NotNull
     @JsonProperty
     private String currentSearchHighlightColor;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean treatPhrasesInDoubleQuotesAsExactPhrases;
+    private Boolean treatPhrasesInDoubleQuotesAsExactPhrases;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean usePngImagesForHtmlBasedEngine;
+    private Boolean usePngImagesForHtmlBasedEngine;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean showOnePageInRow;
+    private Boolean showOnePageInRow;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean loadAllPagesOnSearch;
+    private Boolean loadAllPagesOnSearch;
     
     @Valid
-    @NotNull
     @JsonProperty
-    private boolean useEmScaling;
+    private Boolean useEmScaling;
     
     @Valid
     @JsonProperty
     private Long maxCacheSize;
+    
+    @Valid
+    @JsonProperty
+    private String fileDisplayName;
+    
+    @Valid
+    @JsonProperty
+    private String jqueryFileDownloadCookieName;
+    
+    @Valid
+    @JsonProperty
+    private Integer watermarkFontSize;
+    
+    @Valid
+    @JsonProperty
+    private String watermarkPosition;
+    
+    @Valid
+    @JsonProperty
+    private Boolean convertWordDocumentsCompletely;
+    
+    @Valid
+    @JsonProperty
+    private Boolean ignoreDocumentAbsence;
+    
+    @Valid
+    @JsonProperty
+    private Boolean preloadPagesOnBrowserSide;
+    
+    @Valid
+    @JsonProperty
+    private Boolean printWithWatermark;
+    
+    @Valid
+    @JsonProperty
+    private Boolean supportPageRotation;
     
     public AssetsConfiguration getAssets() {
         return assets;
@@ -325,6 +303,16 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     @Override
     public AssetsConfiguration getAssetsConfiguration() {
         return assets;
+    }
+
+    @Override
+    public String getFileDisplayName() {
+        return fileDisplayName;
+    }
+
+    @Override
+    public String getJqueryFileDownloadCookieName() {
+        return jqueryFileDownloadCookieName;
     }
 
     @Override
@@ -345,22 +333,57 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     }
 
     @Override
-    public boolean isUseAuthorization() {
+    public Integer getWatermarkFontSize() {
+        return watermarkFontSize;
+    }
+
+    @Override
+    public String getWatermarkPosition() {
+        return watermarkPosition;
+    }
+
+    @Override
+    public Boolean isConvertWordDocumentsCompletely() {
+        return convertWordDocumentsCompletely;
+    }
+
+    @Override
+    public Boolean isIgnoreDocumentAbsence() {
+        return ignoreDocumentAbsence;
+    }
+
+    @Override
+    public Boolean isPreloadPagesOnBrowserSide() {
+        return preloadPagesOnBrowserSide;
+    }
+
+    @Override
+    public Boolean isPrintWithWatermark() {
+        return printWithWatermark;
+    }
+
+    @Override
+    public Boolean isSupportPageRotation() {
+        return supportPageRotation;
+    }
+
+    @Override
+    public Boolean isUseAuthorization() {
         return useAuthorization;
     }
 
     @Override
-    public boolean isUseCache() {
+    public Boolean isUseCache() {
         return useCache;
     }
     
     @Override
-    public boolean isUseBrowserCache(){
+    public Boolean isUseBrowserCache(){
         return useBrowserCache;
     }
 
     @Override
-    public int getExpirationDate() {
+    public Integer getExpirationDate() {
         return expirationDate;
     }
 
@@ -380,42 +403,42 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     }
 
     @Override
-    public int getQuality() {
+    public Integer getQuality() {
         return quality;
     }
 
     @Override
-    public boolean isShowThumbnails() {
+    public Boolean isShowThumbnails() {
         return showThumbnails;
     }
 
     @Override
-    public boolean isOpenThumbnails() {
+    public Boolean isOpenThumbnails() {
         return openThumbnails;
     }
 
     @Override
-    public int getInitialZoom() {
+    public Integer getInitialZoom() {
         return initialZoom;
     }
 
     @Override
-    public boolean isZoomToFitWidth() {
+    public Boolean isZoomToFitWidth() {
         return zoomToFitWidth;
     }
 
     @Override
-    public boolean isZoomToFitHeight() {
+    public Boolean isZoomToFitHeight() {
         return zoomToFitHeight;
     }
 
     @Override
-    public int getWidth() {
+    public Integer getWidth() {
         return width;
     }
 
     @Override
-    public int getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
@@ -425,57 +448,57 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     }
 
     @Override
-    public boolean isShowFolderBrowser() {
+    public Boolean isShowFolderBrowser() {
         return showFolderBrowser;
     }
 
     @Override
-    public boolean isShowPrint() {
+    public Boolean isShowPrint() {
         return showPrint;
     }
 
     @Override
-    public boolean isShowDownload() {
+    public Boolean isShowDownload() {
         return showDownload;
     }
 
     @Override
-    public boolean isShowZoom() {
+    public Boolean isShowZoom() {
         return showZoom;
     }
 
     @Override
-    public boolean isShowPaging() {
+    public Boolean isShowPaging() {
         return showPaging;
     }
 
     @Override
-    public boolean isShowViewerStyleControl() {
+    public Boolean isShowViewerStyleControl() {
         return showViewerStyleControl;
     }
 
     @Override
-    public boolean isShowSearch() {
+    public Boolean isShowSearch() {
         return showSearch;
     }
 
     @Override
-    public int getPreloadPagesCount() {
+    public Integer getPreloadPagesCount() {
         return preloadPagesCount;
     }
 
     @Override
-    public int getViewerStyle() {
+    public Integer getViewerStyle() {
         return viewerStyle;
     }
 
     @Override
-    public boolean isSupportTextSelection() {
+    public Boolean isSupportTextSelection() {
         return supportTextSelection;
     }
 
     @Override
-    public boolean isUsePdfPrinting() {
+    public Boolean isUsePdfPrinting() {
         return usePdfPrinting;
     }
 
@@ -520,62 +543,62 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     }
 
     @Override
-    public int getThumbnailsContainerWidth() {
+    public Integer getThumbnailsContainerWidth() {
         return thumbnailsContainerWidth;
     }
 
     @Override
-    public boolean isShowDownloadErrorsInPopup() {
+    public Boolean isShowDownloadErrorsInPopup() {
         return showDownloadErrorsInPopup;
     }
 
     @Override
-    public boolean isShowImageWidth() {
+    public Boolean isShowImageWidth() {
         return showImageWidth;
     }
 
     @Override
-    public boolean isShowHeader() {
+    public Boolean isShowHeader() {
         return showHeader;
     }
 
     @Override
-    public int getMinimumImageWidth() {
+    public Integer getMinimumImageWidth() {
         return minimumImageWidth;
     }
 
     @Override
-    public boolean isEnableStandardErrorHandling() {
+    public Boolean isEnableStandardErrorHandling() {
         return enableStandardErrorHandling;
     }
 
     @Override
-    public boolean isUseHtmlBasedEngine() {
+    public Boolean isUseHtmlBasedEngine() {
         return useHtmlBasedEngine;
     }
 
     @Override
-    public boolean isUseImageBasedPrinting() {
+    public Boolean isUseImageBasedPrinting() {
         return useImageBasedPrinting;
     }
 
     @Override
-    public boolean isDownloadPdfFile() {
+    public Boolean isDownloadPdfFile() {
         return downloadPdfFile;
     }
 
     @Override
-    public boolean isSearchForSeparateWords() {
+    public Boolean isSearchForSeparateWords() {
         return searchForSeparateWords;
     }
 
     @Override
-    public boolean isPreventTouchEventsBubbling() {
+    public Boolean isPreventTouchEventsBubbling() {
         return preventTouchEventsBubbling;
     }
 
     @Override
-    public boolean isUseInnerThumbnails() {
+    public Boolean isUseInnerThumbnails() {
         return useInnerThumbnails;
     }
 
@@ -585,7 +608,7 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     }
 
     @Override
-    public boolean isSupportPageReordering() {
+    public Boolean isSupportPageReordering() {
         return supportPageReordering;
     }
 
@@ -595,7 +618,7 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     }
 
     @Override
-    public boolean isOnlyShrinkLargePages() {
+    public Boolean isOnlyShrinkLargePages() {
         return onlyShrinkLargePages;
     }
 
@@ -610,27 +633,27 @@ public class Config extends Configuration implements AssetsBundleConfiguration, 
     }
 
     @Override
-    public boolean isTreatPhrasesInDoubleQuotesAsExactPhrases() {
+    public Boolean isTreatPhrasesInDoubleQuotesAsExactPhrases() {
         return treatPhrasesInDoubleQuotesAsExactPhrases;
     }
 
     @Override
-    public boolean isUsePngImagesForHtmlBasedEngine() {
+    public Boolean isUsePngImagesForHtmlBasedEngine() {
         return usePngImagesForHtmlBasedEngine;
     }
 
     @Override
-    public boolean isShowOnePageInRow() {
+    public Boolean isShowOnePageInRow() {
         return showOnePageInRow;
     }
 
     @Override
-    public boolean isLoadAllPagesOnSearch() {
+    public Boolean isLoadAllPagesOnSearch() {
         return loadAllPagesOnSearch;
     }
 
     @Override
-    public boolean isUseEmScaling() {
+    public Boolean isUseEmScaling() {
         return useEmScaling;
     }
 
