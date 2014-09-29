@@ -17,7 +17,7 @@ assets:
     /assets: E:/Projects/GroupDocs/app/xFiles
   mimeTypes:
     woff: application/font-woff
-	
+
 #Server configuration
 #Set available ports for application to use
 #Example: 

@@ -11,7 +11,7 @@ import javax.validation.Valid;
  *
  * @author Alex Bobkov
  */
-public class Config extends Configuration implements AssetsBundleConfiguration, ServiceConfigurationBase{
+public class Config extends Configuration implements AssetsBundleConfiguration, IServiceConfiguration{
     @Valid
     @JsonProperty
     private String licensePath;
