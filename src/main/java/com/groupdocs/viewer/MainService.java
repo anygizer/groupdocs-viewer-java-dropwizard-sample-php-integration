@@ -24,7 +24,7 @@ public class MainService extends Service<Config>{
 
     @Override
     public void initialize(Bootstrap<Config> bootstrap) {
-        bootstrap.setName("GroupDocs Viewer");
+        bootstrap.setName("GroupDocs.Viewer for Java");
         bootstrap.addBundle(new ConfiguredAssetsBundle("/assets/", "/assets/"));
         bootstrap.addBundle(new ViewBundle());
     }
