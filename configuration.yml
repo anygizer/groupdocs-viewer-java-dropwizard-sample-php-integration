@@ -11,10 +11,10 @@ applicationPath: null
 #Files path
 #Set root path for files and images
 #ATTENTION: Root path should contain files
-#Example: E:/Projects/GroupDocs/
+#Example: E:/Projects/GroupDocs/app/xFiles
 assets:
   overrides:
-    /assets: E:/Projects/GroupDocs/app/xFiles
+    /assets: D:/Projects/GroupDocs/Apps/xFiles
   mimeTypes:
     woff: application/font-woff
 
@@ -30,7 +30,7 @@ http:
 #Licence path
 #Set path to licence file
 #ATTENTION: If you don't have a licence file leave licencePath as it is
-#Example: E:/Projects/GroupDocs/app/Resources/Aspose License/viewer/GroupDocs.Viewer.Java.lic
+#Example: D:/Projects/GroupDocs/Apps/0-resources/licenses/groupdocs.viewer/GroupDocs.Viewer.Java.lic
 licensePath: null
 
 #Locales path
