@@ -265,6 +265,7 @@ ignoreDocumentAbsence: false
 preloadPagesOnBrowserSide: false
 
 #Support page rotation
+#IMPORTANT: This feature doesn't supported in current version. It will be supported in next version
 supportPageRotation: false
 
 
