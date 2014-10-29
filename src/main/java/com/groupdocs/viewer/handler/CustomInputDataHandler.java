@@ -2,8 +2,8 @@ package com.groupdocs.viewer.handler;
 
 import com.groupdocs.viewer.config.ServiceConfiguration;
 import com.groupdocs.viewer.domain.FileType;
-import com.groupdocs.viewer.handlers.InputDataHandler;
-import com.groupdocs.viewer.resources.Utils;
+import com.groupdocs.viewer.handlers.input.InputDataHandler;
+import com.groupdocs.viewer.utils.Utils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,8 +15,7 @@ import java.util.HashMap;
  * @author Alex Bobkov
  */
 public class CustomInputDataHandler extends InputDataHandler{
-    private final HashMap<String, String> fileId2FilePath = new HashMap<String, String>();
-    private final HashMap<String, String> fileId2FileName = new HashMap<String, String>();
+    private final HashMap<String, File> fileMap = new HashMap<String, File>();
     private String basePath = null;
 
     public CustomInputDataHandler(ServiceConfiguration serviceConfiguration) {
@@ -24,20 +23,19 @@ public class CustomInputDataHandler extends InputDataHandler{
     }
 
     @Override
-    public HashMap<String, String> getFileList(String directory) {
+    public File[] getFileList(String directory) {
         File[] files = new File(basePath + directory).listFiles();
         for (File file : files) {
             String fileId = Utils.encodeData(file.getName());
-            fileId2FilePath.put(fileId, file.getAbsolutePath());
-            fileId2FileName.put(fileId, file.getName());
+            fileMap.put(fileId, file);
         }
-        return fileId2FileName;
+        return files;
     }
 
     @Override
     public InputStream getFile(String guid) {
         try {
-            return new FileInputStream(fileId2FilePath.get(guid));
+            return new FileInputStream(fileMap.get(guid));
         } catch (FileNotFoundException e){
             return null;
         }
@@ -45,7 +43,7 @@ public class CustomInputDataHandler extends InputDataHandler{
 
     @Override
     public FileType getFileType(String guid) {
-        String fileName = new File(fileId2FileName.get(guid)).getName();
+        String fileName = fileMap.get(guid).getName();
         if (fileName.contains(".")) {
             return FileType.valueOf(fileName.substring(fileName.lastIndexOf(".") + 1).toUpperCase());
         }

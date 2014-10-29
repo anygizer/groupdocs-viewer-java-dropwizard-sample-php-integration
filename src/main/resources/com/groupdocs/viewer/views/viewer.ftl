@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>GroupDocs.Viewer for Java Sample</title>
+        <title>GroupDocs.Viewer for Java Dropwizard Sample</title>
         ${headerElems}
         <script>
             $(document).ready(function(){
@@ -15,7 +15,7 @@
         </script>
     </head>
     <body>
-        <h1>GroupDocs.Viewer for Java Sample</h1>
+        <h1>GroupDocs.Viewer for Java Dropwizard Sample</h1>
         <div>
             <form enctype="multipart/form-data" method="POST" action="UploadFile">
                 <input type="file" id="fileUpload" name="file"/>

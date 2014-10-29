@@ -1,6 +1,7 @@
 package com.groupdocs.viewer.views;
 
 import com.yammer.dropwizard.views.View;
+import java.nio.charset.Charset;
 
 /**
  *
@@ -11,7 +12,7 @@ public class ViewerView extends View{
     private String viewerScript;
     
     public ViewerView(String headerElems, String viewerScript){
-        super("viewer.ftl");
+        super("viewer.ftl", Charset.forName("UTF-8"));
         this.headerElems = headerElems;
         this.viewerScript = viewerScript;
         

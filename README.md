@@ -1,8 +1,5 @@
-GroupDocs.Viewer for Java (Dropwizard Sample)
-==============================================
+GroupDocs.Viewer for Java (Dropwizard Sample) modified for the PHP integration
+==============================================================================
 
-1. Install GroupDocs.Viewer for Java library into maven http://groupdocs.com/java/document-viewer-library
-2. Download sample sources to any directory
-3. Open file `configuration.yml` and update configuration (eg: update assets to set the path to the storage folder)
-4. Run file `run.bat` to start sample application
-5. Open URL `http://127.0.0.1:8080/` in your browser, make sure that port 8080 is free (otherwise change port number in configuration.yml).
+This code is based on the [GroupDocs.Viewer for Java library Dropwizard sample](https://github.com/groupdocs/groupdocs-viewer-java-dropwizard-sample/) and modified to support integration with PHP application.
+Please, follow to the full [guide on the GroupDocs.Viewer integration with PHP based on the F3 framework](http://groupdocs.com/docs/display/viewerjava/How+to+Integrate+the+GroupDocs.Viewer+for+Java+Library+into+Your+PHP+Web+App).

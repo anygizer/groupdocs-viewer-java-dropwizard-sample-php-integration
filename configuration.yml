@@ -1,8 +1,22 @@
-#Licence path
-#Set path to licence file
-#ATTENTION: If you don't have a licence file leave licencePath as it is
-#Example: E:/Projects/GroupDocs/app/Resources/Aspose License/GroupDocs.Viewer.Java.lic
-licensePath: null
+#Application path
+#Application path is used in application for receiving and sending requests
+#Path can be absolute, relative or null
+#applicationPath: http://127.0.0.1:8080
+#applicationPath: custom-url
+#Note: custom-url prefix will be used in addition to application and context path, ex: http://127.0.0.1:8080/custom-url
+#applicationPath: null
+#Note: null value will set default application request URI, in this case http://127.0.0.1:8080/
+applicationPath: null
+
+#Files path
+#Set root path for files and images
+#ATTENTION: Root path should contain files
+#Example: E:/Projects/GroupDocs/app/xFiles
+assets:
+  overrides:
+    /assets: D:/Projects/GroupDocs/Apps/xFiles
+  mimeTypes:
+    woff: application/font-woff
 
 #Server configuration
 #Set available ports for application to use
@@ -13,36 +27,48 @@ http:
   port: 8080
   adminPort: 8081
 
-#Application Path
-#This path used in application for sending request
-applicationPath: http://127.0.0.1:8080
-  
-#Files path
-#Set root path for files and images
-#ATTENTION: Root path should contain files
-#Example: E:/Projects/GroupDocs/
-assets:
-  overrides:
-    /assets: E:/Projects/GroupDocs/app/xFiles
-  mimeTypes:
-    woff: application/font-woff
+#Licence path
+#Set path to licence file
+#ATTENTION: If you don't have a licence file leave licencePath as it is
+#Example: D:/Projects/GroupDocs/Apps/0-resources/licenses/groupdocs.viewer/GroupDocs.Viewer.Java.lic
+licensePath: null
 
-#Authorization
-#Set true ONLY if viewer requests will be overridden for authorization
-useAuthorization: false
+#Locales path
+#Locales path is used to change application locale if supported
+#If locales path is null, then viewer's default locales will be used
+#Note: locales path is a directory path, do not specify full path to locale file. System will automatically detect system locale and set it using one of the existing locales from specified directory.
+localesPath: null
+
+#Upload path
+#Set relative path for file uploads
+#Example: 'uploadPath: uploads', this way file will be uploaded into /assets/uploads/
+#Set null for default directory, the default directory is assets/ directory
+uploadPath: null
+
+#Cache
+#Use cache generated files
+useCache: true
+
+#Browser cache
+#Use browser cache
+useBrowserCache: true
+
+#Total max cache size for temp directory (in MB)
+#Set null or 0 for unlimited size
+maxCacheSize: 2
 
 #File expiration date
 #File upload expiration date in minutes
 #Set to 0 if file is never expired
 expirationDate: 5
 
-#Cache
-#Use cache generated files
-useCache: true
-
 #Encryption key
 #NOTE: key must be 16 characters long!
 encryptionKey: GroupDocsEncrypt
+
+#Authorization
+#Set true ONLY if viewer requests will be overridden for authorization
+useAuthorization: false
 
 #*******************************
 # FRONT-END (UI) CONFIGURATION
@@ -53,15 +79,25 @@ encryptionKey: GroupDocsEncrypt
 #IMPORTANT: if this flag is set to 'true', useCache flag should be 'true' as well
 useHtmlBasedEngine: true
 
+#Use png images For html based engine
+usePngImagesForHtmlBasedEngine: true
+
+
+# BASIC VISUAL OPTIONS
+#------------------------
+
 #Quality
 #Default quality of generated images
 quality: 100
 
-#Show thumbnails
-showThumbnails: true
+#Width
+#Viewer width
+#Note: set 0 to use 100% initial width
+width: 0
 
-#Open thumbnails
-openThumbnails: true
+#Height
+#Viewer height
+height: 650
 
 #Initial zoom
 initialZoom: 100
@@ -72,17 +108,15 @@ zoomToFitWidth: true
 #Zoom to fit height
 zoomToFitHeight: false
 
-#Width
-#Viewer width
-width: 1000
+#Viewer style
+viewerStyle: 1
 
-#Height
-#Viewer height
-height: 650
 
-#Background color
-#NOTE: leave empty for default
-backgroundColor:
+# CONTROL BUTTONS OPTIONS
+#------------------------
+
+#Show header
+showHeader: true
 
 #Show folder browser button
 showFolderBrowser: true
@@ -105,19 +139,148 @@ showViewerStyleControl: true
 #Show search
 showSearch: true
 
-#Pre-load pages count
-preloadPagesCount: 0
+#Show download errors in popup
+showDownloadErrorsInPopup: false
 
-#Viewer style
-viewerStyle: 1
+#Show image width
+showImageWidth: false
 
-#Support text selection
-#Set if user will be able to select(copy) text
-#NOTE: 'false' will work only when useHtmlBasedEngine set to 'false' as well
-supportTextSelection: true
+
+# THUMBNAILS OPTIONS
+#-------------------
+
+#Show thumbnails
+showThumbnails: true
+
+#Open thumbnails
+openThumbnails: true
+
+#Thumbnails container width
+#NOTE: minimum 0
+thumbnailsContainerWidth: 0
+
+#Use inner thumbnails
+useInnerThumbnails: true
+
+
+# PRINT & DOWNLOAD OPTIONS
+#-------------------------
 
 #Use pdf printing
 usePdfPrinting: false
+
+#Use image based printing
+useImageBasedPrinting: true
+
+#Print with watermark
+printWithWatermark: false
+
+#Download file as PDF
+downloadPdfFile: false
+
+#jQuery file download name
+jqueryFileDownloadCookieName:
+
+
+# SEARCH OPTIONS
+#---------------
+
+#Search for separate words
+searchForSeparateWords: false
+
+#Treat phrases in double quotes as exact phrases
+treatPhrasesInDoubleQuotesAsExactPhrases: false
+
+#Load all pages on search
+loadAllPagesOnSearch: false
+
+
+# WATERMARK OPTIONS
+#------------------
+
+#Watermark text
+#NOTE: leave empty to disable
+watermarkText:
+
+#Watermark color
+#Default: black
+#Values: use CSS color values (\#fff, \#ffffff, rgb(0,0,0), rgba(0,0,0,1), red, white, etc)
+#NOTE: leave empty for default
+watermarkColor:
+
+#Watermark font size (in pt)
+#NOTE: set 0 to default auto-sized (depends on text length and document size: width and height)
+#NOTE: if useHtmlBasedEngine=true then default size is 16px
+watermarkFontSize: 0
+
+#Watermark position
+#Default: horizontal
+#Values: diagonal, horizontal, vertical
+#NOTE: leave empty for default
+watermarkPosition:
+
+
+# OTHER OPTIONS
+#--------------
+
+#Pre-load pages count
+preloadPagesCount: 0
+
+#Minimum image width
+minimumImageWidth: 0
+
+#Support text selection
+#Set if user will be able to select(copy) text
+supportTextSelection: true
+
+#Support page reordering
+supportPageReordering: false
+
+#Only shrink large pages
+onlyShrinkLargePages: true
+
+#Enable standard error handling
+enableStandardErrorHandling: true
+
+#preventTouchEventsBubbling
+preventTouchEventsBubbling: false
+
+#Show one page in row
+showOnePageInRow: false
+
+#Use em scaling
+useEmScaling: false
+
+#File display name
+#Will display file name on each document opening
+fileDisplayName:
+
+#Convert Word Documents Completely
+convertWordDocumentsCompletely: false 
+
+#Ignore Document Absence
+ignoreDocumentAbsence: false 
+
+#Pre-load pages on browser side
+preloadPagesOnBrowserSide: false
+
+#Support page rotation
+#IMPORTANT: This feature doesn't supported in current version. It will be supported in next version
+supportPageRotation: false
+
+
+# STYLING OPTIONS
+#----------------
+
+#Background color
+#NOTE: leave empty for default
+backgroundColor:
+
+#Search highlight color
+searchHighlightColor:
+
+#Current search highlight color
+currentSearchHighlightColor:
 
 #Toolbar buttons box shadow style
 #NOTE: leave empty for default
@@ -150,72 +313,3 @@ toolbarButtonBorderColor:
 #Toolbar button border hover color
 #NOTE: leave empty for default
 toolbarButtonBorderHoverColor:
-
-#Thumbnails container width
-#NOTE: minimum 0
-thumbnailsContainerWidth: 0
-
-#Show download errors in popup
-showDownloadErrorsInPopup: false
-
-#Show image width
-showImageWidth: false
-
-#Show header
-showHeader: true
-
-#Minimum image width
-minimumImageWidth: 0
-
-#Enable standard error handling
-enableStandardErrorHandling: true
-
-#Use image based printing
-useImageBasedPrinting: true
-
-#Download file as PDF
-downloadPdfFile: false
-
-#Search for separate words
-searchForSeparateWords: false
-
-#preventTouchEventsBubbling
-preventTouchEventsBubbling: false
-
-#Use inner thumbnails
-useInnerThumbnails: true
-
-#Watermark text
-# NOTE: leave empty if there is no need in watermark text
-watermarkText:
-
-#Watermark color
-# NOTE: leave empty for default
-watermarkColor:
-
-#Support page reordering
-supportPageReordering: false
-
-#Only shrink large pages
-onlyShrinkLargePages: true
-
-#Search highlight color
-searchHighlightColor:
-
-#Current search highlight color
-currentSearchHighlightColor:
-
-#Treat phrases in double quotes as exact phrases
-treatPhrasesInDoubleQuotesAsExactPhrases: false
-
-#Use png images For html based engine
-usePngImagesForHtmlBasedEngine: false
-
-#Show one page in row
-showOnePageInRow: false
-
-#Load all pages on search
-loadAllPagesOnSearch: false
-
-#Use em scaling
-useEmScaling: false
