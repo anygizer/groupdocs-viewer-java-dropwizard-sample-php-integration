@@ -8,6 +8,7 @@ import com.groupdocs.viewer.domain.path.TokenId;
 import com.groupdocs.viewer.handlers.ViewerHandler;
 import com.groupdocs.viewer.views.ViewerView;
 import com.sun.jersey.multipart.FormDataParam;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -88,7 +89,8 @@ public class ViewerResource extends GroupDocsViewer{
     {
         if(fileName == null || fileName.isEmpty()) return null;
 
-        GroupDocsPath gPath = new FilePath(fileName, viewerHandler.getConfiguration());
+        ServiceConfiguration sc = viewerHandler.getConfiguration();
+        GroupDocsPath gPath = new EncodedPath(sc.getBasePath() + File.separator + fileName, sc);
         return gPath.getPath();
     }
 
