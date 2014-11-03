@@ -1,5 +1,8 @@
-GroupDocs.Viewer for Java (Dropwizard Sample) modified for the PHP integration
-==============================================================================
+GroupDocs.Viewer for Java integration with PHP -- Java part
+===========================================================
 
-This code is based on the [GroupDocs.Viewer for Java library Dropwizard sample](https://github.com/groupdocs/groupdocs-viewer-java-dropwizard-sample/) and modified to support integration with PHP application.
-Please, follow to the full [guide on the GroupDocs.Viewer integration with PHP based on the F3 framework](http://groupdocs.com/docs/display/viewerjava/How+to+Integrate+the+GroupDocs.Viewer+for+Java+Library+into+Your+PHP+Web+App).
+This code is based on the GroupDocs.Viewer for Java library Dropwizard sample and modified to support integration with the PHP application.
+
+> Note: This slightly modified original Dropwizard sample is only one part of the integration.
+
+A complete guide with descriptions and other code parts is provided in the [GroupDocs documentation wiki](http://groupdocs.com/docs/display/viewerjava/How+to+Integrate+the+GroupDocs.Viewer+for+Java+Library+into+Your+PHP+Web+App).
